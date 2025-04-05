@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
-import Keyboard from "../../components/Keyboard";
-import "./index.scss"; // Import the SCSS file for styling
+import Keyboard from "../../../components/Keyboard";
+import "./page.scss"; // Import the SCSS file for styling
 
 const Home: React.FC = () => {
   const [input, setInput] = useState("");
