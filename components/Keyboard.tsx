@@ -1,4 +1,5 @@
 import React from "react";
+import "./Keyboard.scss"; // Import the SCSS file for styling
 
 interface KeyboardProps {
   letters: string[];
@@ -7,19 +8,12 @@ interface KeyboardProps {
 
 const Keyboard: React.FC<KeyboardProps> = ({ letters, onKeyPress }) => {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+    <div className="keyboard-container">
       {letters.map((letter, index) => (
         <button
           key={index}
           onClick={() => onKeyPress(letter)}
-          style={{
-            padding: "10px 15px",
-            fontSize: "16px",
-            cursor: "pointer",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            backgroundColor: "#f9f9f9",
-          }}
+          className="keyboard-button"
         >
           {letter}
         </button>
