@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="game-container">
-      <h1 className="game-title">Sinhala Keyboard</h1>
+      <h1 className="game-title">Sinhala Spelling Game</h1>
       <input type="text" value={input} readOnly className="game-input" />
       <Keyboard letters={sinhalaLetters} onKeyPress={handleKeyPress} />
     </div>
