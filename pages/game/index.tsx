@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Keyboard from "../../components/Keyboard";
+import "./index.scss"; // Import the SCSS file for styling
 
 const Home: React.FC = () => {
   const [input, setInput] = useState("");
@@ -10,21 +11,9 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Sinhala Keyboard</h1>
-      <input
-        type="text"
-        value={input}
-        readOnly
-        style={{
-          width: "100%",
-          padding: "10px",
-          fontSize: "18px",
-          marginBottom: "20px",
-          border: "1px solid #ccc",
-          borderRadius: "5px",
-        }}
-      />
+    <div className="game-container">
+      <h1 className="game-title">Sinhala Keyboard</h1>
+      <input type="text" value={input} readOnly className="game-input" />
       <Keyboard letters={sinhalaLetters} onKeyPress={handleKeyPress} />
     </div>
   );
