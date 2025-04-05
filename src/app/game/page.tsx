@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Keyboard from "../../../components/Keyboard";
+import Keyboard from "../../../components/Keyboard/Keyboard";
 import "./page.scss"; // Import the SCSS file for styling
-import Carousel from "@/components/Carousel";
+import Carousel from "../../../components/Carousel/Carousel";
 
 const Home: React.FC = () => {
   const [input, setInput] = useState("");
@@ -14,9 +14,9 @@ const Home: React.FC = () => {
   };
 
   const images = [
-    "/images/slide1.jpg",
-    "/images/slide2.jpg",
-    "/images/slide3.jpg",
+    "/images/carousel/ear.jpg",
+    "/images/carousel/mouth.jpg",
+    "/images/carousel/stomach.jpg",
   ]; // Replace with your actual image paths
 
   return (
