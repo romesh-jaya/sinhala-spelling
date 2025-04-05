@@ -3,11 +3,13 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div style={styles.container as React.CSSProperties}>
-      <h1 style={styles.title}>Welcome to the Fun Zone!</h1>
-      <p style={styles.subtitle}>Learn and play with us!</p>
-      <Link href="/game" style={styles.button}>
-        🎮 Go to Game Page
-      </Link>
+      <div style={styles.overlay as React.CSSProperties}>
+        <h1 style={styles.title}>Welcome to the Fun Zone!</h1>
+        <p style={styles.subtitle}>Learn and play with us!</p>
+        <Link href="/game" style={styles.button}>
+          Start Game
+        </Link>
+      </div>
     </div>
   );
 }
@@ -15,13 +17,21 @@ export default function Home() {
 const styles = {
   container: {
     display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    backgroundColor: "#FFFAE5",
-    textAlign: "center",
+    backgroundImage: "url('/images/kids-hero.jpg')", // Replace with your image path
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    position: "relative",
+  },
+  overlay: {
+    backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent overlay
     padding: "20px",
+    borderRadius: "15px",
+    textAlign: "center",
+    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
   },
   title: {
     fontSize: "2.5rem",
@@ -45,8 +55,5 @@ const styles = {
     fontFamily: "'Comic Sans MS', cursive, sans-serif",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     transition: "transform 0.2s",
-  },
-  buttonHover: {
-    transform: "scale(1.1)",
   },
 };
