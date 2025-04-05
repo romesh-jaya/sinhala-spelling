@@ -7,7 +7,7 @@ export default function Home() {
       <div className="home-overlay">
         <h1 className="home-title">Welcome to the Fun Zone!</h1>
         <p className="home-subtitle">Learn and play with us!</p>
-        <Link href="/game" className="home-button">
+        <Link href="/game" className="start-button">
           Start Game
         </Link>
       </div>
