@@ -1,3 +1,20 @@
+// Define CSS variables for light and dark modes
+:root {
+  --keyboard-bg: #f9f9f9; // Light background
+  --keyboard-border: #d2b48c; // Light brown (tan)
+  --keyboard-hover-bg: #ffe4b5; // Light yellow (moccasin)
+  --keyboard-active-bg: #ffcc80; // Darker yellow (peach)
+  --keyboard-text: #5c4033; // Dark brown
+}
+
+[data-theme="dark"] {
+  --keyboard-bg: #3e2723; // Dark brown
+  --keyboard-border: #795548; // Medium brown
+  --keyboard-hover-bg: #ffcc80; // Light yellow (peach)
+  --keyboard-active-bg: #ffb74d; // Darker yellow (orange)
+  --keyboard-text: #ffe4b5; // Light yellow (moccasin)
+}
+
 .keyboard-container {
   display: flex;
   flex-wrap: wrap;
@@ -8,17 +25,18 @@
   padding: 10px 15px;
   font-size: 2rem;
   cursor: pointer;
-  border: 1px solid #ccc;
+  border: 1px solid var(--keyboard-border);
   border-radius: 5px;
-  background-color: #f9f9f9;
-  transition: background-color 0.2s, transform 0.2s;
+  background-color: var(--keyboard-bg);
+  color: var(--keyboard-text);
+  transition: background-color 0.2s, transform 0.2s, color 0.2s;
 }
 
 .keyboard-button:hover {
-  background-color: #e0e0e0; // Slightly darker shade on hover
+  background-color: var(--keyboard-hover-bg);
   transform: scale(1.05); // Slightly enlarge the button on hover
 }
 
 .keyboard-button:active {
-  background-color: #d6d6d6; // Even darker shade when clicked
+  background-color: var(--keyboard-active-bg);
 }
