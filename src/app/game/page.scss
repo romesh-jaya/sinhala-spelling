@@ -1,10 +1,15 @@
 .game-container {
   padding: 20px;
+  margin: 0 auto;
+  max-width: 1024px;
 }
 
 .game-title {
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 3rem;
+  color: #ff6f61;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .game-input {
