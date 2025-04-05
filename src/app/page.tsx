@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div style={styles.container}>
+    <div style={styles.container as React.CSSProperties}>
       <h1 style={styles.title}>Welcome to the Fun Zone!</h1>
       <p style={styles.subtitle}>Learn and play with us!</p>
-      <Link href="/game">
-        <a style={styles.button}>🎮 Go to Game Page</a>
+      <Link href="/game" style={styles.button}>
+        🎮 Go to Game Page
       </Link>
     </div>
   );
