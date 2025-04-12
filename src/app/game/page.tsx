@@ -19,10 +19,14 @@ const Home: React.FC = () => {
     "/images/carousel/stomach.jpg",
   ]; // Replace with your actual image paths
 
+  const onSlideChanged = (currentSlide: number) => {
+    setInput("");
+  };
+
   return (
     <div className="game-container">
       <h1 className="game-title">Sinhala Spelling Game</h1>
-      <Carousel images={images} />
+      <Carousel images={images} onSlideChanged={onSlideChanged} />
       <input type="text" value={input} readOnly className="game-input" />
       <Keyboard letters={sinhalaLetters} onKeyPress={handleKeyPress} />
     </div>

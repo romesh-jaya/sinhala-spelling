@@ -4,13 +4,15 @@ import "./Carousel.scss"; // Import the SCSS file for styling
 
 interface CarouselProps {
   images: string[];
+  onSlideChanged: (currentSlide: number) => void;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
+const Carousel: React.FC<CarouselProps> = ({ images, onSlideChanged }) => {
   const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
+    afterChange: (currentSlide: number) => onSlideChanged(currentSlide),
   };
 
   return (
