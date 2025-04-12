@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import Keyboard from "../../../components/Keyboard/Keyboard";
 import "./page.scss"; // Import the SCSS file for styling
 import Carousel from "../../../components/Carousel/Carousel";
+import { sinhalaLetters } from "@/constants";
 
 const Home: React.FC = () => {
   const [input, setInput] = useState("");
-  const sinhalaLetters = ["අ", "ආ", "ඇ", "ඈ", "ඉ", "ඊ", "උ", "ඌ", "එ", "ඒ"];
 
   const handleKeyPress = (letter: string) => {
     setInput((prev) => prev + letter);
