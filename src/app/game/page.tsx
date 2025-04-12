@@ -5,6 +5,7 @@ import Keyboard from "../../../components/Keyboard/Keyboard";
 import "./page.scss"; // Import the SCSS file for styling
 import Carousel from "../../../components/Carousel/Carousel";
 import { sinhalaLetters } from "@/constants";
+import gameData from "@/input.json";
 
 const Home: React.FC = () => {
   const [input, setInput] = useState("");
@@ -13,11 +14,7 @@ const Home: React.FC = () => {
     setInput((prev) => prev + letter);
   };
 
-  const images = [
-    "/images/carousel/ear.jpg",
-    "/images/carousel/mouth.jpg",
-    "/images/carousel/stomach.jpg",
-  ]; // Replace with your actual image paths
+  const images = gameData.map(item => item.imagePath);
 
   const onSlideChanged = (currentSlide: number) => {
     setInput("");

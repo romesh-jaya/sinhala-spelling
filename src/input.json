@@ -1,0 +1,17 @@
+[
+  {
+    "imagePath": "/images/carousel/ear.jpg",
+    "correctAnswer": "කන",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/mouth.jpg",
+    "correctAnswer": "කට",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/stomach.jpg",
+    "correctAnswer": "බඩ",
+    "levelNum": 1
+  }
+] 
