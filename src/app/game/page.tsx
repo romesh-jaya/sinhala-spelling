@@ -14,6 +14,14 @@ const Home: React.FC = () => {
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
+  // Clear all state when component mounts
+  React.useEffect(() => {
+    setTypedInput("");
+    setCorrectAnswer("");
+    setCorrectlyAnsweredIndices([]);
+    setCurrentSlideIndex(0);
+  }, []);
+
   const handleKeyPress = (letter: string) => {
     if (typedInput.length < correctAnswer.length) {
       setTypedInput((prev) => prev + letter);
