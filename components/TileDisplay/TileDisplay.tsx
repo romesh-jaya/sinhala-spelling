@@ -19,7 +19,7 @@ const TileDisplay: React.FC<TileDisplayProps> = ({ input, answerLength, correctA
     );
   });
 
-  const isCorrect = input === correctAnswer;
+  const isCorrect = input && (input === correctAnswer);
 
   return (
     <div className="tile-container mb-4">

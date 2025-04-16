@@ -19,10 +19,8 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   // Clear all state when component mounts
   useEffect(() => {
     console.log('clearing state');
-    setTypedInput('');
-    setCorrectAnswer('');
     setCorrectlyAnsweredIndices([]);
-    setCurrentSlideIndex(0);
+    onSlideChanged(0)
   }, []);
 
   const handleKeyPress = (letter: string) => {
