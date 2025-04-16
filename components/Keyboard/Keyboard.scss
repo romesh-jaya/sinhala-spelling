@@ -36,7 +36,7 @@
     color 0.2s;
 }
 
-@media (max-width: var(--mobile-breakpoint)) {
+@media (max-width: 768px) {
   .keyboard-button {
     padding: 7px 10px;
     font-size: 1.4rem; // 70% of original 2rem

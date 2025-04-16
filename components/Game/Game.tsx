@@ -5,6 +5,7 @@ import { sinhalaLettersLevel1 } from '@/constants';
 import gameData from '@/input.json';
 import TileDisplay from '../TileDisplay/TileDisplay';
 import CelebrationPopup from '../CelebrationPopup/CelebrationPopup';
+import './Game.scss';
 
 interface GameProps {
   onGameComplete?: () => void;

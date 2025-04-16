@@ -1,5 +1,9 @@
 .carousel-container {
   padding: 40px;
+
+  @media (max-width: 768px) {
+    padding: 20px !important;
+  }
 }
 
 .carousel-slide {
