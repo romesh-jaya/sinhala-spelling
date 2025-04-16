@@ -18,6 +18,10 @@ const Home: React.FC = () => {
     }
   };
 
+  const handleBackspace = () => {
+    setTypedInput((prev) => prev.slice(0, -1));
+  };
+
   const images = gameData.map(item => item.imagePath);
 
   const onSlideChanged = (currentSlide: number) => {
@@ -29,7 +33,12 @@ const Home: React.FC = () => {
     <div className="game-container">
       <h1 className="game-title">Sinhala Spelling Game</h1>
       <Carousel images={images} onSlideChanged={onSlideChanged} />
-      <TileDisplay input={typedInput} answerLength={correctAnswer.length} />
+      <TileDisplay 
+        input={typedInput} 
+        answerLength={correctAnswer.length} 
+        correctAnswer={correctAnswer}
+        onBackspace={handleBackspace}
+      />
       <Keyboard letters={sinhalaLettersLevel1} onKeyPress={handleKeyPress} />
     </div>
   );
