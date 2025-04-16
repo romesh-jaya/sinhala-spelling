@@ -7,20 +7,24 @@ import Carousel from "../../../components/Carousel/Carousel";
 import { sinhalaLettersLevel1 } from "@/constants";
 import gameData from "@/input.json";
 import TileDisplay from "../../../components/TileDisplay/TileDisplay";
+import { useSearchParams, usePathname } from "next/navigation";
 
 const Home: React.FC = () => {
   const [typedInput, setTypedInput] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   // Clear all state when component mounts
   React.useEffect(() => {
+    console.log('clearing state')
     setTypedInput("");
     setCorrectAnswer("");
     setCorrectlyAnsweredIndices([]);
     setCurrentSlideIndex(0);
-  }, []);
+  }, [pathname, searchParams]);
 
   const handleKeyPress = (letter: string) => {
     if (typedInput.length < correctAnswer.length) {
