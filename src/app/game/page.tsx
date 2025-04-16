@@ -11,6 +11,8 @@ import TileDisplay from "../../../components/TileDisplay/TileDisplay";
 const Home: React.FC = () => {
   const [typedInput, setTypedInput] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState("");
+  const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const handleKeyPress = (letter: string) => {
     if (typedInput.length < correctAnswer.length) {
@@ -27,11 +29,22 @@ const Home: React.FC = () => {
   const onSlideChanged = (currentSlide: number) => {
     setTypedInput("");
     setCorrectAnswer(gameData[currentSlide].correctAnswer);
+    setCurrentSlideIndex(currentSlide);
   };
+
+  // Check if the current answer is correct and update the list
+  React.useEffect(() => {
+    if (typedInput === correctAnswer && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
+      setCorrectlyAnsweredIndices(prev => [...prev, currentSlideIndex]);
+    }
+  }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices]);
 
   return (
     <div className="game-container">
       <h1 className="game-title">Sinhala Spelling Game</h1>
+      <div className="score-display">
+        Correctly answered: {correctlyAnsweredIndices.length} / {gameData.length}
+      </div>
       <Carousel images={images} onSlideChanged={onSlideChanged} />
       <TileDisplay 
         input={typedInput} 
