@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './CelebrationPopup.module.css';
 
 interface CelebrationPopupProps {
   onClose: () => void;
+  onStartAgain: () => void;
 }
 
-const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onClose }) => {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    setShow(true);
-    const timer = setTimeout(() => {
-      setShow(false);
-      onClose();
-    }, 5000); // Show for 5 seconds
-
-    return () => clearTimeout(timer);
-  }, [onClose]);
+const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onClose, onStartAgain }) => {
+  const [show, setShow] = useState(true);
 
   return (
     <div className={`${styles.overlay} ${show ? styles.show : ''}`}>
@@ -31,6 +22,9 @@ const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onClose }) => {
         </div>
         <h1 className={styles.title}>Well done! 🎉</h1>
         <p className={styles.message}>You've completed all the levels!</p>
+        <button className={styles.startAgainButton} onClick={onStartAgain}>
+          Start Again
+        </button>
       </div>
     </div>
   );

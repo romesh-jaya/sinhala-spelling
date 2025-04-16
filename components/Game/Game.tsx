@@ -18,6 +18,15 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [showCelebration, setShowCelebration] = useState(false);
   const images = gameData.map((item) => item.imagePath);
 
+  const resetGame = () => {
+    setTypedInput('');
+    setCorrectAnswer('');
+    setCorrectlyAnsweredIndices([]);
+    setCurrentSlideIndex(0);
+    setShowCelebration(false);
+    onSlideChanged(0);
+  };
+
   // Clear all state when component mounts
   useEffect(() => {
     console.log('clearing state');
@@ -71,7 +80,10 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
       />
       <Keyboard letters={sinhalaLettersLevel1} onKeyPress={handleKeyPress} />
       {showCelebration && (
-        <CelebrationPopup onClose={() => setShowCelebration(false)} />
+        <CelebrationPopup 
+          onClose={() => setShowCelebration(false)} 
+          onStartAgain={resetGame}
+        />
       )}
     </div>
   );

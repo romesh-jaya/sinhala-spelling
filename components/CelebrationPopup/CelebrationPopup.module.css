@@ -111,3 +111,22 @@
     transform: translateY(-20px) rotate(5deg);
   }
 }
+
+.startAgainButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+.startAgainButton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
