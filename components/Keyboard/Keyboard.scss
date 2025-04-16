@@ -7,7 +7,7 @@
   --keyboard-text: #5c4033; // Dark brown
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --keyboard-bg: #3e2723; // Dark brown
   --keyboard-border: #795548; // Medium brown
   --keyboard-hover-bg: #ffcc80; // Light yellow (peach)
@@ -30,7 +30,17 @@
   border-radius: 5px;
   background-color: var(--keyboard-bg);
   color: var(--keyboard-text);
-  transition: background-color 0.2s, transform 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s,
+    color 0.2s;
+}
+
+@media (max-width: var(--mobile-breakpoint)) {
+  .keyboard-button {
+    padding: 7px 10px;
+    font-size: 1.4rem; // 70% of original 2rem
+  }
 }
 
 .keyboard-button:hover {
