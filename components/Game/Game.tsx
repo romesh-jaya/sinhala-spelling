@@ -14,6 +14,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const images = gameData.map(item => item.imagePath);
 
   // Clear all state when component mounts
   useEffect(() => {
@@ -34,7 +35,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     setTypedInput((prev) => prev.slice(0, -1));
   };
 
-  const images = gameData.map(item => item.imagePath);
+
 
   const onSlideChanged = (currentSlide: number) => {
     setTypedInput("");
@@ -44,12 +45,16 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
 
   // Check if the current answer is correct and update the list
   useEffect(() => {
+    if (typedInput) {
     if (typedInput === correctAnswer && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
+      console.log('correct answer', typedInput, correctAnswer);
+
       setCorrectlyAnsweredIndices(prev => [...prev, currentSlideIndex]);
       if (correctlyAnsweredIndices.length + 1 === gameData.length) {
         onGameComplete?.();
       }
     }
+  }
   }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, onGameComplete]);
 
   return (
