@@ -4,6 +4,7 @@ import Carousel from '../Carousel/Carousel';
 import { sinhalaLettersLevel1 } from '@/constants';
 import gameData from '@/input.json';
 import TileDisplay from '../TileDisplay/TileDisplay';
+import CelebrationPopup from '../CelebrationPopup/CelebrationPopup';
 
 interface GameProps {
   onGameComplete?: () => void;
@@ -14,6 +15,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [correctAnswer, setCorrectAnswer] = useState('');
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [showCelebration, setShowCelebration] = useState(false);
   const images = gameData.map((item) => item.imagePath);
 
   // Clear all state when component mounts
@@ -47,6 +49,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
 
         setCorrectlyAnsweredIndices((prev) => [...prev, currentSlideIndex]);
         if (correctlyAnsweredIndices.length + 1 === gameData.length) {
+          setShowCelebration(true);
           onGameComplete?.();
         }
       }
@@ -67,6 +70,9 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
         onBackspace={handleBackspace}
       />
       <Keyboard letters={sinhalaLettersLevel1} onKeyPress={handleKeyPress} />
+      {showCelebration && (
+        <CelebrationPopup onClose={() => setShowCelebration(false)} />
+      )}
     </div>
   );
 };
