@@ -16,6 +16,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [showCelebration, setShowCelebration] = useState(false);
+  const [carouselKey, setCarouselKey] = useState(0);
   const images = gameData.map((item) => item.imagePath);
 
   const resetGame = () => {
@@ -24,6 +25,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     setCorrectlyAnsweredIndices([]);
     setCurrentSlideIndex(0);
     setShowCelebration(false);
+    setCarouselKey(prev => prev + 1);
     onSlideChanged(0);
   };
 
@@ -71,7 +73,11 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
       <div className="score-display">
         Correctly answered: {correctlyAnsweredIndices.length} / {gameData.length}
       </div>
-      <Carousel images={images} onSlideChanged={onSlideChanged} />
+      <Carousel 
+        key={carouselKey}
+        images={images} 
+        onSlideChanged={onSlideChanged} 
+      />
       <TileDisplay
         input={typedInput}
         answerLength={correctAnswer.length}
