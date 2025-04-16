@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
-import Keyboard from "../Keyboard/Keyboard";
-import Carousel from "../Carousel/Carousel";
-import { sinhalaLettersLevel1 } from "@/constants";
-import gameData from "@/input.json";
-import TileDisplay from "../TileDisplay/TileDisplay";
+import React, { useState, useEffect } from 'react';
+import Keyboard from '../Keyboard/Keyboard';
+import Carousel from '../Carousel/Carousel';
+import { sinhalaLettersLevel1 } from '@/constants';
+import gameData from '@/input.json';
+import TileDisplay from '../TileDisplay/TileDisplay';
 
 interface GameProps {
   onGameComplete?: () => void;
 }
 
 const Game: React.FC<GameProps> = ({ onGameComplete }) => {
-  const [typedInput, setTypedInput] = useState("");
-  const [correctAnswer, setCorrectAnswer] = useState("");
+  const [typedInput, setTypedInput] = useState('');
+  const [correctAnswer, setCorrectAnswer] = useState('');
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const images = gameData.map(item => item.imagePath);
+  const images = gameData.map((item) => item.imagePath);
 
   // Clear all state when component mounts
   useEffect(() => {
     console.log('clearing state');
-    setTypedInput("");
-    setCorrectAnswer("");
+    setTypedInput('');
+    setCorrectAnswer('');
     setCorrectlyAnsweredIndices([]);
     setCurrentSlideIndex(0);
   }, []);
@@ -35,10 +35,8 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     setTypedInput((prev) => prev.slice(0, -1));
   };
 
-
-
   const onSlideChanged = (currentSlide: number) => {
-    setTypedInput("");
+    setTypedInput('');
     setCorrectAnswer(gameData[currentSlide].correctAnswer);
     setCurrentSlideIndex(currentSlide);
   };
@@ -46,15 +44,15 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   // Check if the current answer is correct and update the list
   useEffect(() => {
     if (typedInput) {
-    if (typedInput === correctAnswer && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
-      console.log('correct answer', typedInput, correctAnswer);
+      if (typedInput === correctAnswer && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
+        console.log('correct answer', typedInput, correctAnswer);
 
-      setCorrectlyAnsweredIndices(prev => [...prev, currentSlideIndex]);
-      if (correctlyAnsweredIndices.length + 1 === gameData.length) {
-        onGameComplete?.();
+        setCorrectlyAnsweredIndices((prev) => [...prev, currentSlideIndex]);
+        if (correctlyAnsweredIndices.length + 1 === gameData.length) {
+          onGameComplete?.();
+        }
       }
     }
-  }
   }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, onGameComplete]);
 
   return (
@@ -64,9 +62,9 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
         Correctly answered: {correctlyAnsweredIndices.length} / {gameData.length}
       </div>
       <Carousel images={images} onSlideChanged={onSlideChanged} />
-      <TileDisplay 
-        input={typedInput} 
-        answerLength={correctAnswer.length} 
+      <TileDisplay
+        input={typedInput}
+        answerLength={correctAnswer.length}
         correctAnswer={correctAnswer}
         onBackspace={handleBackspace}
       />
@@ -75,4 +73,4 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   );
 };
 
-export default Game; 
+export default Game;
