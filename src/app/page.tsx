@@ -1,7 +1,5 @@
 import Link from "next/link";
 import "./page.scss"; // Import the SCSS file for page-specific styles
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
   return (
