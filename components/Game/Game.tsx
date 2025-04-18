@@ -84,6 +84,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
         answerLength={correctAnswer.length}
         correctAnswer={correctAnswer}
         onBackspace={handleBackspace}
+        isPreviouslyCorrect={correctlyAnsweredIndices.includes(currentSlideIndex)}
       />
       <Keyboard letters={sinhalaLettersLevel1} onKeyPress={handleKeyPress} />
       {showCelebration && (

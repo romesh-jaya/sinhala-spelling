@@ -6,9 +6,16 @@ interface TileDisplayProps {
   answerLength: number;
   correctAnswer: string;
   onBackspace: () => void;
+  isPreviouslyCorrect?: boolean;
 }
 
-const TileDisplay: React.FC<TileDisplayProps> = ({ input, answerLength, correctAnswer, onBackspace }) => {
+const TileDisplay: React.FC<TileDisplayProps> = ({ 
+  input, 
+  answerLength, 
+  correctAnswer, 
+  onBackspace,
+  isPreviouslyCorrect = false 
+}) => {
   // Create an array of tiles based on the answer length
   const tiles = Array(answerLength).fill(null).map((_, index) => {
     const letter = input[index] || '';
@@ -24,7 +31,7 @@ const TileDisplay: React.FC<TileDisplayProps> = ({ input, answerLength, correctA
   return (
     <div className="tile-container mb-4">
       {tiles}
-      {isCorrect && (
+      {(isCorrect || isPreviouslyCorrect) && (
         <span className="checkmark">✓</span>
       )}
       <button 
