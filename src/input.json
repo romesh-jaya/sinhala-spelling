@@ -13,5 +13,40 @@
     "imagePath": "/images/carousel/stomach.jpg",
     "correctAnswer": "බඩ",
     "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/eight.png",
+    "correctAnswer": "අට",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/flower.jpg",
+    "correctAnswer": "මල",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/potato.jpg",
+    "correctAnswer": "අල",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/river.jpg",
+    "correctAnswer": "ගඟ",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/stone.png",
+    "correctAnswer": "ගල",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/sun.jpg",
+    "correctAnswer": "ඉර",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/tree.png",
+    "correctAnswer": "ගස",
+    "levelNum": 1
   }
-] 
+]

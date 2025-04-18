@@ -12,6 +12,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, onSlideChanged }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
+    lazyLoad: 'anticipated' as LazyLoadTypes,
     afterChange: (currentSlide: number) => onSlideChanged(currentSlide),
   };
 
