@@ -41,15 +41,15 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   }, []);
 
   const resetGame = () => {
-    const shuffledData = shuffleArray(gameData).slice(0, MAX_GAME_SLIDES);
-    setRandomizedGameData(shuffledData);
+    setShowCelebration(false);
     setTypedInput('');
     setCorrectlyAnsweredIndices([]);
-    setCurrentSlideIndex(0);
-    setShowCelebration(false);
     setAnsweredInputs({});
     setCarouselKey(prev => prev + 1);
-    onSlideChanged(0);
+    setCurrentSlideIndex(0)
+    const shuffledData = shuffleArray(gameData).slice(0, MAX_GAME_SLIDES);
+    setRandomizedGameData(shuffledData);
+    setCorrectAnswer(shuffledData[0].correctAnswer);
   };
 
   const handleKeyPress = (letter: string) => {
