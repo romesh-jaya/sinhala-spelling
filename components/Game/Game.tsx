@@ -18,6 +18,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [showCelebration, setShowCelebration] = useState(false);
   const [carouselKey, setCarouselKey] = useState(0);
+  const [answeredInputs, setAnsweredInputs] = useState<Record<number, string>>({});
   const images = gameData.map((item) => item.imagePath);
 
   const resetGame = () => {
@@ -26,6 +27,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     setCorrectlyAnsweredIndices([]);
     setCurrentSlideIndex(0);
     setShowCelebration(false);
+    setAnsweredInputs({});
     setCarouselKey(prev => prev + 1);
     onSlideChanged(0);
   };
@@ -34,23 +36,36 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   useEffect(() => {
     console.log('clearing state');
     setCorrectlyAnsweredIndices([]);
+    setAnsweredInputs({});
     onSlideChanged(0)
   }, []);
 
   const handleKeyPress = (letter: string) => {
+    if (correctlyAnsweredIndices.includes(currentSlideIndex)) {
+      return; // Don't allow typing on already answered slides
+    }
     if (typedInput.length < correctAnswer.length) {
       setTypedInput((prev) => prev + letter);
     }
   };
 
   const handleBackspace = () => {
+    if (correctlyAnsweredIndices.includes(currentSlideIndex)) {
+      return; // Don't allow backspace on already answered slides
+    }
     setTypedInput((prev) => prev.slice(0, -1));
   };
 
   const onSlideChanged = (currentSlide: number) => {
-    setTypedInput('');
     setCorrectAnswer(gameData[currentSlide].correctAnswer);
     setCurrentSlideIndex(currentSlide);
+    
+    if (correctlyAnsweredIndices.includes(currentSlide)) {
+      // Restore the previously answered input
+      setTypedInput(answeredInputs[currentSlide] || '');
+    } else {
+      setTypedInput('');
+    }
   };
 
   // Check if the current answer is correct and update the list
@@ -58,6 +73,12 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     if (typedInput) {
       if (typedInput === correctAnswer && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
         console.log('correct answer', typedInput, correctAnswer);
+        
+        // Store the correct answer
+        setAnsweredInputs(prev => ({
+          ...prev,
+          [currentSlideIndex]: typedInput
+        }));
 
         setCorrectlyAnsweredIndices((prev) => [...prev, currentSlideIndex]);
         if (correctlyAnsweredIndices.length + 1 === gameData.length) {
