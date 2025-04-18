@@ -19,11 +19,34 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [showCelebration, setShowCelebration] = useState(false);
   const [carouselKey, setCarouselKey] = useState(0);
   const [answeredInputs, setAnsweredInputs] = useState<Record<number, string>>({});
-  const images = gameData.map((item) => item.imagePath);
+  const [randomizedGameData, setRandomizedGameData] = useState<typeof gameData>([]);
+
+  // Function to shuffle array using Fisher-Yates algorithm
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  };
+
+  // Initialize randomized game data when component mounts
+  useEffect(() => {
+    setCorrectlyAnsweredIndices([]);
+    setAnsweredInputs({});
+    const shuffledData = shuffleArray(gameData);
+    setRandomizedGameData(shuffledData);
+    setCorrectAnswer(shuffledData[0].correctAnswer);
+  }, []);
+
+  const images = randomizedGameData.map((item) => item.imagePath);
 
   const resetGame = () => {
+    const shuffledData = shuffleArray(gameData);
+    setRandomizedGameData(shuffledData);
     setTypedInput('');
-    setCorrectAnswer('');
+    setCorrectAnswer(shuffledData[0].correctAnswer);
     setCorrectlyAnsweredIndices([]);
     setCurrentSlideIndex(0);
     setShowCelebration(false);
@@ -31,14 +54,6 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     setCarouselKey(prev => prev + 1);
     onSlideChanged(0);
   };
-
-  // Clear all state when component mounts
-  useEffect(() => {
-    console.log('clearing state');
-    setCorrectlyAnsweredIndices([]);
-    setAnsweredInputs({});
-    onSlideChanged(0)
-  }, []);
 
   const handleKeyPress = (letter: string) => {
     if (correctlyAnsweredIndices.includes(currentSlideIndex)) {
@@ -57,7 +72,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   };
 
   const onSlideChanged = (currentSlide: number) => {
-    setCorrectAnswer(gameData[currentSlide].correctAnswer);
+    setCorrectAnswer(randomizedGameData[currentSlide].correctAnswer);
     setCurrentSlideIndex(currentSlide);
     
     if (correctlyAnsweredIndices.includes(currentSlide)) {
@@ -81,19 +96,19 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
         }));
 
         setCorrectlyAnsweredIndices((prev) => [...prev, currentSlideIndex]);
-        if (correctlyAnsweredIndices.length + 1 === gameData.length) {
+        if (correctlyAnsweredIndices.length + 1 === randomizedGameData.length) {
           setShowCelebration(true);
           onGameComplete?.();
         }
       }
     }
-  }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, onGameComplete]);
+  }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, onGameComplete, randomizedGameData.length]);
 
   return (
     <div className="game-container">
       <h1 className="game-title">Sinhala Spelling Game</h1>
       <div className="score-display">
-        Correctly answered: {correctlyAnsweredIndices.length} / {gameData.length}
+        Correctly answered: {correctlyAnsweredIndices.length} / {randomizedGameData.length}
       </div>
       <Carousel 
         key={carouselKey}

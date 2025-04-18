@@ -34,13 +34,15 @@ const TileDisplay: React.FC<TileDisplayProps> = ({
       {(isCorrect || isPreviouslyCorrect) && (
         <span className="checkmark">✓</span>
       )}
-      <button 
-        className="backspace-button"
-        onClick={onBackspace}
-        disabled={input.length === 0}
-      >
-        ⌫
-      </button>
+      {!isPreviouslyCorrect && (
+        <button 
+          className="backspace-button"
+          onClick={onBackspace}
+          disabled={input.length === 0}
+        >
+          ⌫
+        </button>
+      )}
     </div>
   );
 };
