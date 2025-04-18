@@ -28,8 +28,15 @@ body {
 .slick-prev:before,
 .slick-next:before {
   font-size: 60px !important;
+
+  @media (max-width: 768px) {
+    font-size: 40px !important;
+  }
 }
 
 .slick-prev {
   left: -60px !important;
+  @media (max-width: 768px) {
+    left: -40px !important;
+  }
 }
