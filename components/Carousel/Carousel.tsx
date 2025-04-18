@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "react-slick";
+import Slider, { LazyLoadTypes } from "react-slick";
 import "./Carousel.scss"; // Import the SCSS file for styling
 
 interface CarouselProps {

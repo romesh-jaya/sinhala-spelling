@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import styles from './CelebrationPopup.module.css';
 
 interface CelebrationPopupProps {
-  onClose: () => void;
   onStartAgain: () => void;
 }
 
-const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onClose, onStartAgain }) => {
-  const [show, setShow] = useState(true);
+const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onStartAgain }) => {
 
   return (
-    <div className={`${styles.overlay} ${show ? styles.show : ''}`}>
+    <div className={`${styles.overlay} ${styles.show}`}>
       <div className={styles.popup}>
         <div className={styles.balloons}>
           {[...Array(10)].map((_, i) => (
@@ -21,7 +19,7 @@ const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onClose, onStartAga
           ))}
         </div>
         <h1 className={styles.title}>Well done! 🎉</h1>
-        <p className={styles.message}>You've completed all the levels!</p>
+        <p className={styles.message}>You&apos;ve completed all the levels!</p>
         <button className={styles.startAgainButton} onClick={onStartAgain}>
           Start Again
         </button>

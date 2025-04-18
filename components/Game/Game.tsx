@@ -122,7 +122,6 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
       <Keyboard letters={sinhalaLettersLevel1} onKeyPress={handleKeyPress} />
       {showCelebration && (
         <CelebrationPopup 
-          onClose={() => setShowCelebration(false)} 
           onStartAgain={resetGame}
         />
       )}
