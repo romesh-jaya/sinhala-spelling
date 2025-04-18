@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Keyboard from '../Keyboard/Keyboard';
 import Carousel from '../Carousel/Carousel';
-import { sinhalaLettersLevel1 } from '@/constants';
+import { sinhalaLettersLevel1, MAX_GAME_SLIDES } from '@/constants';
 import gameData from '@/input.json';
 import TileDisplay from '../TileDisplay/TileDisplay';
 import CelebrationPopup from '../CelebrationPopup/CelebrationPopup';
@@ -35,18 +35,15 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   useEffect(() => {
     setCorrectlyAnsweredIndices([]);
     setAnsweredInputs({});
-    const shuffledData = shuffleArray(gameData);
+    const shuffledData = shuffleArray(gameData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
     setCorrectAnswer(shuffledData[0].correctAnswer);
   }, []);
 
-  const images = randomizedGameData.map((item) => item.imagePath);
-
   const resetGame = () => {
-    const shuffledData = shuffleArray(gameData);
+    const shuffledData = shuffleArray(gameData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
     setTypedInput('');
-    setCorrectAnswer(shuffledData[0].correctAnswer);
     setCorrectlyAnsweredIndices([]);
     setCurrentSlideIndex(0);
     setShowCelebration(false);
@@ -112,7 +109,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
       </div>
       <Carousel 
         key={carouselKey}
-        images={images} 
+        images={randomizedGameData.map((item) => item.imagePath)} 
         onSlideChanged={onSlideChanged} 
       />
       <TileDisplay

@@ -176,3 +176,5 @@ export const sinhalaLettersSymbols = [
   '්‍ය්‍ර්‍ය', // yansaya with rakaransaya with yansaya
   '්‍ය්‍ර්‍ර', // yansaya with rakaransaya with rakaransaya
 ];
+
+export const MAX_GAME_SLIDES = 3; // Maximum number of slides to show in the game
