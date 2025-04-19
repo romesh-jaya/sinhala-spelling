@@ -10,11 +10,9 @@ import TileDisplay from '../TileDisplay/TileDisplay';
 import CelebrationPopup from '../CelebrationPopup/CelebrationPopup';
 import './Game.scss';
 
-interface GameProps {
-  onGameComplete?: () => void;
-}
 
-const Game: React.FC<GameProps> = ({ onGameComplete }) => {
+
+const Game: React.FC = () => {
   const searchParams = useSearchParams();
   const levelNum = searchParams.get('levelNum');
   const [typedInput, setTypedInput] = useState('');
@@ -118,11 +116,10 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
         setCorrectlyAnsweredIndices((prev) => [...prev, currentSlideIndex]);
         if (correctlyAnsweredIndices.length + 1 === randomizedGameData.length) {
           setShowCelebration(true);
-          onGameComplete?.();
         }
       }
     }
-  }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, onGameComplete, randomizedGameData.length]);
+  }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, randomizedGameData.length]);
 
   return (
     <div className="game-container">
@@ -159,6 +156,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
       {showCelebration && (
         <CelebrationPopup 
           onStartAgain={resetGame}
+          currentLevel={1}
         />
       )}
     </div>

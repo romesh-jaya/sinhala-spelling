@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './CelebrationPopup.module.css';
 
 interface CelebrationPopupProps {
   onStartAgain: () => void;
+  currentLevel: number;
 }
 
-const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onStartAgain }) => {
+const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onStartAgain, currentLevel }) => {
+  const router = useRouter();
+  const nextLevel = currentLevel + 1;
+  const hasNextLevel = nextLevel <= 2; // Based on levelConfig.json having levels 1 and 2
+
+  const handleNextLevel = () => {
+    router.push(`/game?levelNum=${nextLevel}`);
+  };
 
   return (
     <div className={`${styles.overlay} ${styles.show}`}>
@@ -23,6 +32,11 @@ const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onStartAgain }) => 
         <button className={styles.startAgainButton} onClick={onStartAgain}>
           Start Again
         </button>
+        {hasNextLevel && (
+          <button className={styles.nextLevelButton} onClick={handleNextLevel}>
+            Play Next Level
+          </button>
+        )}
       </div>
     </div>
   );
