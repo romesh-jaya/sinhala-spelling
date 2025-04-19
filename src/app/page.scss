@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
   background-image: url('/images/notepad.webp'); // Replace with your image path
   background-size: cover;

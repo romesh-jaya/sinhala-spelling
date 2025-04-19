@@ -43,6 +43,11 @@ body {
 }
 
 .footer-content {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
+
+  a {
+    color: rgba(2, 1, 1, 0.8) !important;
+  }
 }
