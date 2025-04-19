@@ -31,7 +31,7 @@ export default function RootLayout({
         <footer>
         <div className="footer-content">
           <a href="https://github.com/romesh-jaya"  target="_blank">
-          romesh-jaya
+         My Github page - romesh-jaya
           </a>
         </div>
       </footer>

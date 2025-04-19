@@ -4,6 +4,7 @@ import Keyboard from '../Keyboard/Keyboard';
 import Carousel from '../Carousel/Carousel';
 import { sinhalaLettersLevelBasic, MAX_GAME_SLIDES } from '@/constants';
 import gameData from '@/input.json';
+import levelConfig from '@/levelConfig.json';
 import TileDisplay from '../TileDisplay/TileDisplay';
 import CelebrationPopup from '../CelebrationPopup/CelebrationPopup';
 import './Game.scss';
@@ -14,7 +15,7 @@ interface GameProps {
 
 const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const searchParams = useSearchParams();
-  const levelNum = searchParams.get('levelNum')
+  const levelNum = searchParams.get('levelNum');
   const [typedInput, setTypedInput] = useState('');
   const [correctAnswer, setCorrectAnswer] = useState('');
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
@@ -23,11 +24,14 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [carouselKey, setCarouselKey] = useState(0);
   const [answeredInputs, setAnsweredInputs] = useState<Record<number, string>>({});
   const [randomizedGameData, setRandomizedGameData] = useState<typeof gameData>([]);
+  const [showInvalidLevelWarning, setShowInvalidLevelWarning] = useState(false);
 
   // Function to get valid level number from query params
   const getValidLevelNum = () => {
     const parsedLevel = parseInt(levelNum as string);
-    return isNaN(parsedLevel) || parsedLevel < 1 ? 1 : parsedLevel;
+    const isValidLevel = levelConfig.some(config => config.levelNum === parsedLevel);
+    setShowInvalidLevelWarning(!isValidLevel && levelNum !== null);
+    return parsedLevel;
   };
 
   // Function to filter game data by level
@@ -122,6 +126,11 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   return (
     <div className="game-container">
       <h1 className="game-title">Sinhala Spelling Game</h1>
+      {showInvalidLevelWarning && (
+        <div className="warning-message">
+          Invalid level
+        </div>
+      )}
       <div className="score-display">
         Answered: {correctlyAnsweredIndices.length} / {randomizedGameData.length}
       </div>
