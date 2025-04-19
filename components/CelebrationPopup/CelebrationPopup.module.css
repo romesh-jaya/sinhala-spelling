@@ -146,3 +146,10 @@
 .nextLevelButton:hover {
   background-color: #45a049;
 }
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}

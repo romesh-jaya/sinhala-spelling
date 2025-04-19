@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Keyboard from '../Keyboard/Keyboard';
 import Carousel from '../Carousel/Carousel';
@@ -13,6 +13,7 @@ import './Game.scss';
 
 
 const Game: React.FC = () => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const levelNum = searchParams.get('levelNum');
   const [typedInput, setTypedInput] = useState('');
@@ -24,6 +25,7 @@ const Game: React.FC = () => {
   const [answeredInputs, setAnsweredInputs] = useState<Record<number, string>>({});
   const [randomizedGameData, setRandomizedGameData] = useState<typeof gameData>([]);
   const [showInvalidLevelWarning, setShowInvalidLevelWarning] = useState(false);
+  const [validLevel, setValidLevel] = useState(1);
 
   // Function to get valid level number from query params
   const getValidLevelNum = useCallback(() => {
@@ -53,10 +55,13 @@ const Game: React.FC = () => {
     setCorrectlyAnsweredIndices([]);
     setAnsweredInputs({});
     const validLevel = getValidLevelNum();
+    setValidLevel(validLevel);
     const filteredData = filterGameDataByLevel(gameData, validLevel);
     const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
     setCorrectAnswer(shuffledData[0]?.correctAnswer || '');
+    setCarouselKey(prev => prev + 1);
+    setCurrentSlideIndex(0);
   }, [levelNum, getValidLevelNum]);
 
   const resetGame = () => {
@@ -66,13 +71,18 @@ const Game: React.FC = () => {
     setAnsweredInputs({});
     setCarouselKey(prev => prev + 1);
     setCurrentSlideIndex(0);
-    const validLevel = getValidLevelNum();
     const filteredData = filterGameDataByLevel(gameData, validLevel);
     const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
     setCorrectAnswer(shuffledData[0]?.correctAnswer || '');
   };
 
+  const playNextLevel = () => {
+    setShowCelebration(false);
+    setTypedInput('');
+    router.push(`/game?levelNum=${validLevel + 1}`);
+  }
+  
   const handleKeyPress = (letter: string) => {
     if (correctlyAnsweredIndices.includes(currentSlideIndex)) {
       return; // Don't allow typing on already answered slides
@@ -156,7 +166,8 @@ const Game: React.FC = () => {
       {showCelebration && (
         <CelebrationPopup 
           onStartAgain={resetGame}
-          currentLevel={1}
+          playNextLevel={playNextLevel}
+          currentLevel={validLevel}
         />
       )}
     </div>
