@@ -31,9 +31,9 @@
   background-color: var(--keyboard-bg);
   color: var(--keyboard-text);
   transition:
-    background-color 0.2s,
-    transform 0.2s,
-    color 0.2s;
+    background-color 0.05s,
+    transform 0.05s,
+    color 0.05s;
 }
 
 @media (max-width: 768px) {

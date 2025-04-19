@@ -105,7 +105,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     <div className="game-container">
       <h1 className="game-title">Sinhala Spelling Game</h1>
       <div className="score-display">
-        Correctly answered: {correctlyAnsweredIndices.length} / {randomizedGameData.length}
+        Answered: {correctlyAnsweredIndices.length} / {randomizedGameData.length}
       </div>
       <Carousel 
         key={carouselKey}
