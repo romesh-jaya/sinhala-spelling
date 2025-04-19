@@ -1,4 +1,4 @@
-export const sinhalaLettersLevel1 = [
+export const sinhalaLettersLevelBasic = [
   // Vowels
   'අ',
   'ආ',
@@ -41,7 +41,7 @@ export const sinhalaLettersLevel1 = [
   'ළ',
 ];
 
-export const sinhalaLettersLevel2Up = [
+export const sinhalaLettersMedium = [
   // Vowels
   'අ',
   'ආ',

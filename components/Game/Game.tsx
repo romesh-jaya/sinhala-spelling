@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Keyboard from '../Keyboard/Keyboard';
 import Carousel from '../Carousel/Carousel';
-import { sinhalaLettersLevel1, MAX_GAME_SLIDES } from '@/constants';
+import { sinhalaLettersLevelBasic, MAX_GAME_SLIDES } from '@/constants';
 import gameData from '@/input.json';
 import TileDisplay from '../TileDisplay/TileDisplay';
 import CelebrationPopup from '../CelebrationPopup/CelebrationPopup';
@@ -119,7 +119,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
         onBackspace={handleBackspace}
         isPreviouslyCorrect={correctlyAnsweredIndices.includes(currentSlideIndex)}
       />
-      <Keyboard letters={sinhalaLettersLevel1} onKeyPress={handleKeyPress} />
+      <Keyboard letters={sinhalaLettersLevelBasic} onKeyPress={handleKeyPress} />
       {showCelebration && (
         <CelebrationPopup 
           onStartAgain={resetGame}
