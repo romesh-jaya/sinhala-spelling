@@ -29,6 +29,14 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <footer>
+        <div className="footer-content">
+          <a href="https://github.com/romesh-jaya"  target="_blank">
+          romesh-jaya
+          </a>
+        </div>
+      </footer>
+
     </html>
   );
 }
