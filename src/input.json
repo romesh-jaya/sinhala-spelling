@@ -48,5 +48,30 @@
     "imagePath": "/images/carousel/tree.png",
     "correctAnswer": "ගස",
     "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/hand.jpg",
+    "correctAnswer": "අත",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/king.jpg",
+    "correctAnswer": "රජ",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/mango.png",
+    "correctAnswer": "අඹ",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/moon.jpg",
+    "correctAnswer": "හඳ",
+    "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/tooth.png",
+    "correctAnswer": "දත",
+    "levelNum": 1
   }
 ]
