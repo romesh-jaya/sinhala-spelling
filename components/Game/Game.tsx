@@ -59,7 +59,7 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
     setCorrectAnswer(shuffledData[0]?.correctAnswer || '');
-  }, [levelNum]);
+  }, [levelNum, getValidLevelNum]);
 
   const resetGame = () => {
     setShowCelebration(false);
