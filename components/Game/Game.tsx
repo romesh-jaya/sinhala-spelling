@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Keyboard from '../Keyboard/Keyboard';
@@ -28,12 +28,12 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [showInvalidLevelWarning, setShowInvalidLevelWarning] = useState(false);
 
   // Function to get valid level number from query params
-  const getValidLevelNum = () => {
+  const getValidLevelNum = useCallback(() => {
     const parsedLevel = parseInt(levelNum as string);
     const isValidLevel = levelConfig.some(config => config.levelNum === parsedLevel);
     setShowInvalidLevelWarning(!isValidLevel && levelNum !== null);
     return parsedLevel;
-  };
+  }, [levelNum]);
 
   // Function to filter game data by level
   const filterGameDataByLevel = (data: typeof gameData, level: number) => {
