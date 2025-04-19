@@ -43,8 +43,6 @@
 
 .start-button {
   font-size: 1.5rem;
-  color: #ffffff;
-  background-color: #ff6f61;
   padding: 10px 20px;
   border-radius: 10px;
   text-decoration: none;
@@ -59,7 +57,30 @@
   }
 }
 
-.start-button:hover {
+.start-button.one {
+  color: #ffffff;
+  background-color: #ff6f61;
+}
+
+.start-button.two {
+  color: #ffffff;
+  background-color: #6171ff;
+}
+
+.start-button.one:hover {
   background-color: #e0554f; // Darker shade of the button color
   transform: scale(1.05); // Slightly enlarge the button on hover
+}
+
+.start-button.two:hover {
+  background-color: #4f5fff; // Darker shade of the button color
+  transform: scale(1.05); // Slightly enlarge the button on hover
+}
+
+.start-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
