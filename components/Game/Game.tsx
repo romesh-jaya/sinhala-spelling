@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Keyboard from '../Keyboard/Keyboard';
 import Carousel from '../Carousel/Carousel';
 import { sinhalaLettersLevelBasic, MAX_GAME_SLIDES } from '@/constants';
@@ -12,6 +13,8 @@ interface GameProps {
 }
 
 const Game: React.FC<GameProps> = ({ onGameComplete }) => {
+  const searchParams = useSearchParams();
+  const levelNum = searchParams.get('levelNum')
   const [typedInput, setTypedInput] = useState('');
   const [correctAnswer, setCorrectAnswer] = useState('');
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
@@ -20,6 +23,17 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
   const [carouselKey, setCarouselKey] = useState(0);
   const [answeredInputs, setAnsweredInputs] = useState<Record<number, string>>({});
   const [randomizedGameData, setRandomizedGameData] = useState<typeof gameData>([]);
+
+  // Function to get valid level number from query params
+  const getValidLevelNum = () => {
+    const parsedLevel = parseInt(levelNum as string);
+    return isNaN(parsedLevel) || parsedLevel < 1 ? 1 : parsedLevel;
+  };
+
+  // Function to filter game data by level
+  const filterGameDataByLevel = (data: typeof gameData, level: number) => {
+    return data.filter(item => item.levelNum === level);
+  };
 
   // Function to shuffle array using Fisher-Yates algorithm
   const shuffleArray = <T,>(array: T[]): T[] => {
@@ -31,14 +45,16 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     return newArray;
   };
 
-  // Initialize randomized game data when component mounts
+  // Initialize randomized game data when component mounts or level changes
   useEffect(() => {
     setCorrectlyAnsweredIndices([]);
     setAnsweredInputs({});
-    const shuffledData = shuffleArray(gameData).slice(0, MAX_GAME_SLIDES);
+    const validLevel = getValidLevelNum();
+    const filteredData = filterGameDataByLevel(gameData, validLevel);
+    const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
-    setCorrectAnswer(shuffledData[0].correctAnswer);
-  }, []);
+    setCorrectAnswer(shuffledData[0]?.correctAnswer || '');
+  }, [levelNum]);
 
   const resetGame = () => {
     setShowCelebration(false);
@@ -46,10 +62,12 @@ const Game: React.FC<GameProps> = ({ onGameComplete }) => {
     setCorrectlyAnsweredIndices([]);
     setAnsweredInputs({});
     setCarouselKey(prev => prev + 1);
-    setCurrentSlideIndex(0)
-    const shuffledData = shuffleArray(gameData).slice(0, MAX_GAME_SLIDES);
+    setCurrentSlideIndex(0);
+    const validLevel = getValidLevelNum();
+    const filteredData = filterGameDataByLevel(gameData, validLevel);
+    const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
-    setCorrectAnswer(shuffledData[0].correctAnswer);
+    setCorrectAnswer(shuffledData[0]?.correctAnswer || '');
   };
 
   const handleKeyPress = (letter: string) => {
