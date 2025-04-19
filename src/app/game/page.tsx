@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Game from "../../../components/Game/Game";
+import GameWithSearchParams from "../../../components/Game/GameWithSearchParams";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./page.scss";
@@ -9,7 +9,7 @@ import "./page.scss";
 export default function GamePage() {
   return (
     <div className="game-page">
-      <Game />
+      <GameWithSearchParams />
     </div>
   )
 }
