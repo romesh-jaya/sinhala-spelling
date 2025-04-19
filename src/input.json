@@ -73,5 +73,65 @@
     "imagePath": "/images/carousel/tooth.png",
     "correctAnswer": "දත",
     "levelNum": 1
+  },
+  {
+    "imagePath": "/images/carousel/bathala.jpeg",
+    "correctAnswer": "බතල",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/bus.jpg",
+    "correctAnswer": "බසය",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/eakle.jpg",
+    "correctAnswer": "ඉදල",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/four.png",
+    "correctAnswer": "හතර",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/shop.jpg",
+    "correctAnswer": "කඩය",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/kadala.jpg",
+    "correctAnswer": "කඩල",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/sky.jpg",
+    "correctAnswer": "අහස",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/lamp.png",
+    "correctAnswer": "පහන",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/nine.png",
+    "correctAnswer": "නවය",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/nose.jpg",
+    "correctAnswer": "නහය",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/pot.jpg",
+    "correctAnswer": "කළය",
+    "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/roof.jpg",
+    "correctAnswer": "වහල",
+    "levelNum": 2
   }
 ]
