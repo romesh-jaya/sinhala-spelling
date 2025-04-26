@@ -17,6 +17,7 @@
   border-radius: 4px;
   transition: all 0.05s ease;
   position: relative;
+  user-select: none; /* Prevent text selection */
 
   &.empty {
     background-color: #f0f0f0;
@@ -53,6 +54,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.05s ease;
+  background: none;
 
   &:hover:not(:disabled) {
     background-color: #e0e0e0;
@@ -65,8 +67,16 @@
 }
 
 .checkmark {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
   color: #4caf50;
   font-size: 2.5rem;
   font-weight: bold;
   margin-left: 0.5rem;
+  user-select: none;
+}
+
+.action-icon {
 }

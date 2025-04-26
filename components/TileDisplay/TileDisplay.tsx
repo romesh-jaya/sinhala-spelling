@@ -31,20 +31,22 @@ const TileDisplay: React.FC<TileDisplayProps> = ({
   return (
     <div className="tile-container mb-4">
       {tiles}
-      {(isCorrect || isPreviouslyCorrect) && (
-        <span className="checkmark">✓</span>
-      )}
-      {!isPreviouslyCorrect && (
-        <button 
-          className="backspace-button"
-          onClick={onBackspace}
-          disabled={input.length === 0}
-        >
-          ⌫
-        </button>
-      )}
+      <div className="action-icon">
+        {(isCorrect || isPreviouslyCorrect) && (
+          <span className="checkmark">✓</span>
+        )}
+        {!isPreviouslyCorrect && (
+          <button 
+            className="backspace-button"
+            onClick={onBackspace}
+            disabled={input.length === 0}
+          >
+            ⌫
+          </button>
+        )}
+      </div>
     </div>
   );
 };
 
-export default TileDisplay; 
+export default TileDisplay;
