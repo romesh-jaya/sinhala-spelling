@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sinhala Spelling",
-  description: "Sinhala Spelling for kids to learn",
+  description: "Sinhala Spelling game for kids to learn basic 2-3 letter words and more",
 };
 
 export default function RootLayout({
