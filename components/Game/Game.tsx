@@ -1,16 +1,20 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import Keyboard from '../Keyboard/Keyboard';
-import Carousel from '../Carousel/Carousel';
+import dynamic from 'next/dynamic';
 import { sinhalaLettersLevelBasic, MAX_GAME_SLIDES } from '@/constants';
 import gameData from '@/input.json';
 import levelConfig from '@/levelConfig.json';
-import TileDisplay from '../TileDisplay/TileDisplay';
-import CelebrationPopup from '../CelebrationPopup/CelebrationPopup';
 import './Game.scss';
 
+// Dynamically import components with loading states
+const KeyboardComponent = dynamic(() => import('../Keyboard/Keyboard'));
 
+const CarouselComponent = dynamic(() => import('../Carousel/Carousel'));
+
+const TileDisplayComponent = dynamic(() => import('../TileDisplay/TileDisplay'));
+
+const CelebrationPopupComponent = dynamic(() => import('../CelebrationPopup/CelebrationPopup'));
 
 const Game: React.FC = () => {
   const router = useRouter();
@@ -151,21 +155,21 @@ const Game: React.FC = () => {
         <span className="level-display">Level {validLevel}</span>
         <span className="answered-display">Answered: {correctlyAnsweredIndices.length} / {randomizedGameData.length}</span>
       </div>
-      <Carousel 
+      <CarouselComponent 
         key={carouselKey}
         images={randomizedGameData.map((item) => item.imagePath)} 
         onSlideChanged={onSlideChanged} 
       />
-      <TileDisplay
+      <TileDisplayComponent
         input={typedInput}
         answerLength={correctAnswer.length}
         correctAnswer={correctAnswer}
         onBackspace={handleBackspace}
         isPreviouslyCorrect={correctlyAnsweredIndices.includes(currentSlideIndex)}
       />
-      <Keyboard letters={sinhalaLettersLevelBasic} onKeyPress={handleKeyPress} />
+      <KeyboardComponent letters={sinhalaLettersLevelBasic} onKeyPress={handleKeyPress} />
       {showCelebration && (
-        <CelebrationPopup 
+        <CelebrationPopupComponent 
           onStartAgain={resetGame}
           playNextLevel={playNextLevel}
           currentLevel={validLevel}

@@ -107,3 +107,28 @@
   text-align: center;
   border: 1px solid #ffeeba;
 }
+
+.loading-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px 0;
+  color: #666;
+  font-size: 1.2rem;
+  animation: pulse 1.5s infinite;
+
+  @keyframes pulse {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+}
