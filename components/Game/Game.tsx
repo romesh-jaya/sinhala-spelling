@@ -148,7 +148,8 @@ const Game: React.FC = () => {
         </div>
       )}
       <div className="score-display">
-        Answered: {correctlyAnsweredIndices.length} / {randomizedGameData.length}
+        <span className="level-display">Level {validLevel}</span>
+        <span className="answered-display">Answered: {correctlyAnsweredIndices.length} / {randomizedGameData.length}</span>
       </div>
       <Carousel 
         key={carouselKey}
