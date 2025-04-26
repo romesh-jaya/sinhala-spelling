@@ -14,7 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sinhala Spelling",
-  description: "Sinhala Spelling game for kids to learn basic 2-3 letter words and more",
+  description: "Free to use Sinhala spelling game for kids to learn basic 2-3 letter words and more",
+  metadataBase: new URL('https://sinhala-spelling.web.app'), // required for meta image
+  other: {
+    custom: ['sinhala', 'spelling', 'game', 'kids', '2-3 letter words'],
+  },
 };
 
 export default function RootLayout({
