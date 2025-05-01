@@ -2,7 +2,9 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { sinhalaLettersLevelBasic, MAX_GAME_SLIDES } from '@/constants';
+// Update import path for sinhalaLettersLevelBasic
+import { sinhalaLettersLevelBasic } from '@/keyboards';
+import { MAX_GAME_SLIDES } from '@/constants';
 import gameData from '@/input.json';
 import levelConfig from '@/levelConfig.json';
 import './Game.scss';
@@ -167,6 +169,7 @@ const Game: React.FC = () => {
         onBackspace={handleBackspace}
         isPreviouslyCorrect={correctlyAnsweredIndices.includes(currentSlideIndex)}
       />
+      {/* Ensure KeyboardComponent uses the imported constant */}
       <KeyboardComponent letters={sinhalaLettersLevelBasic} onKeyPress={handleKeyPress} />
       {showCelebration && (
         <CelebrationPopupComponent 
