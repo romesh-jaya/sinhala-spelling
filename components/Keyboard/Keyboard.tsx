@@ -1,10 +1,7 @@
 import React, { useState } from 'react'; // Import useState
 import { LettersWithDiacritics } from '@/models/LettersWithDiacritics';
-import dynamic from 'next/dynamic'; // Import dynamic
+import DiacriticModal from '../DiacriticModal/DiacriticModal'; // Added static import
 import './Keyboard.scss';
-
-// Dynamically import the modal
-const DiacriticModal = dynamic(() => import('../DiacriticModal/DiacriticModal'));
 
 interface KeyboardProps {
   letters: LettersWithDiacritics[];

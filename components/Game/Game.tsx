@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
+// Removed dynamic import
 // Import specific keyboard layouts and the config
 import { sinhalaLettersLevelBasic, sinhalaLettersLevelBasicForDiacritics } from '@/keyboards';
 import keyboardConfig from '@/keyboardConfig.json'; // Import keyboard config
@@ -11,14 +11,11 @@ import levelConfig from '@/levelConfig.json';
 import { LettersWithDiacritics } from '@/models/LettersWithDiacritics'; // Import the type
 import './Game.scss';
 
-// Dynamically import components with loading states
-const KeyboardComponent = dynamic(() => import('../Keyboard/Keyboard'));
-
-const CarouselComponent = dynamic(() => import('../Carousel/Carousel'));
-
-const TileDisplayComponent = dynamic(() => import('../TileDisplay/TileDisplay'));
-
-const CelebrationPopupComponent = dynamic(() => import('../CelebrationPopup/CelebrationPopup'));
+// Statically import components
+import KeyboardComponent from '../Keyboard/Keyboard';
+import CarouselComponent from '../Carousel/Carousel';
+import TileDisplayComponent from '../TileDisplay/TileDisplay';
+import CelebrationPopupComponent from '../CelebrationPopup/CelebrationPopup';
 
 // Map keyboard names from config to actual layout variables
 const keyboardLayouts: { [key: string]: LettersWithDiacritics[] } = {
