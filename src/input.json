@@ -148,5 +148,90 @@
     "imagePath": "/images/carousel/knife.jpg",
     "correctAnswer": ["පි", "හි", "ය"],
     "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/parrot.jpg",
+    "correctAnswer": ["ගි", "ර", "වා"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/dog.jpg",
+    "correctAnswer": ["බ", "ල්", "ලා"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/banana.jpg",
+    "correctAnswer": ["කෙ", "සෙ", "ල්"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/duck.jpg",
+    "correctAnswer": ["තා", "රා", "වා"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/rabbit.jpg",
+    "correctAnswer": ["හා", "වා"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/pen.png",
+    "correctAnswer": ["පෑ", "න"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/hammer.jpg",
+    "correctAnswer": ["මි", "ටි", "ය"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/rat.jpg",
+    "correctAnswer": ["මී", "යා"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/chair.jpg",
+    "correctAnswer": ["පු", "ටු", "ව"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/table.jpg",
+    "correctAnswer": ["මේ", "ස", "ය"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/coconut.jpg",
+    "correctAnswer": ["පො", "ල්"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/leaf.jpg",
+    "correctAnswer": ["කො", "ළ", "ය"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/ball.jpg",
+    "correctAnswer": ["බෝ", "ල", "ය"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/cow.jpg",
+    "correctAnswer": ["හ", "ර", "කා"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/hen.jpg",
+    "correctAnswer": ["කි", "කි", "ළී"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/bat.jpg",
+    "correctAnswer": ["පි", "ත්", "ත"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/basket.png",
+    "correctAnswer": ["කූ", "ඩ", "ය"],
+    "levelNum": 3
   }
 ]
