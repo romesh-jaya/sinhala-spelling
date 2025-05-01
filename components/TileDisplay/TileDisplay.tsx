@@ -4,7 +4,7 @@ import './TileDisplay.scss';
 interface TileDisplayProps {
   input: string;
   answerLength: number;
-  correctAnswer: string;
+  correctAnswer: string[]; // Changed type to string[]
   onBackspace: () => void;
   isPreviouslyCorrect?: boolean;
 }
@@ -26,7 +26,8 @@ const TileDisplay: React.FC<TileDisplayProps> = ({
     );
   });
 
-  const isCorrect = input && (input === correctAnswer);
+  // Join the correctAnswer array for comparison
+  const isCorrect = input && (input === correctAnswer.join('')); 
 
   return (
     <div className="tile-container mb-4">

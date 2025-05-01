@@ -1,137 +1,137 @@
 [
   {
     "imagePath": "/images/carousel/ear.jpg",
-    "correctAnswer": "කන",
+    "correctAnswer": ["ක", "න"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/mouth.jpg",
-    "correctAnswer": "කට",
+    "correctAnswer": ["ක", "ට"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/stomach.jpg",
-    "correctAnswer": "බඩ",
+    "correctAnswer": ["බ", "ඩ"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/eight.png",
-    "correctAnswer": "අට",
+    "correctAnswer": ["අ", "ට"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/flower.jpg",
-    "correctAnswer": "මල",
+    "correctAnswer": ["ම", "ල"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/potato.jpg",
-    "correctAnswer": "අල",
+    "correctAnswer": ["අ", "ල"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/river.jpg",
-    "correctAnswer": "ගඟ",
+    "correctAnswer": ["ග", "ඟ"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/stone.png",
-    "correctAnswer": "ගල",
+    "correctAnswer": ["ග", "ල"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/sun.jpg",
-    "correctAnswer": "ඉර",
+    "correctAnswer": ["ඉ", "ර"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/tree.png",
-    "correctAnswer": "ගස",
+    "correctAnswer": ["ග", "ස"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/hand.jpg",
-    "correctAnswer": "අත",
+    "correctAnswer": ["අ", "ත"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/king.jpg",
-    "correctAnswer": "රජ",
+    "correctAnswer": ["ර", "ජ"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/mango.jpg",
-    "correctAnswer": "අඹ",
+    "correctAnswer": ["අ", "ඹ"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/moon.jpg",
-    "correctAnswer": "හඳ",
+    "correctAnswer": ["හ", "ඳ"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/tooth.png",
-    "correctAnswer": "දත",
+    "correctAnswer": ["ද", "ත"],
     "levelNum": 1
   },
   {
     "imagePath": "/images/carousel/bathala.jpg",
-    "correctAnswer": "බතල",
+    "correctAnswer": ["බ", "ත", "ල"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/bus.jpg",
-    "correctAnswer": "බසය",
+    "correctAnswer": ["බ", "ස", "ය"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/eakle.jpg",
-    "correctAnswer": "ඉදල",
+    "correctAnswer": ["ඉ", "ද", "ල"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/four.png",
-    "correctAnswer": "හතර",
+    "correctAnswer": ["හ", "ත", "ර"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/shop.jpg",
-    "correctAnswer": "කඩය",
+    "correctAnswer": ["ක", "ඩ", "ය"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/kadala.jpg",
-    "correctAnswer": "කඩල",
+    "correctAnswer": ["ක", "ඩ", "ල"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/sky.jpg",
-    "correctAnswer": "අහස",
+    "correctAnswer": ["අ", "හ", "ස"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/lamp.jpg",
-    "correctAnswer": "පහන",
+    "correctAnswer": ["ප", "හ", "න"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/nine.png",
-    "correctAnswer": "නවය",
+    "correctAnswer": ["න", "ව", "ය"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/nose.jpg",
-    "correctAnswer": "නහය",
+    "correctAnswer": ["න", "හ", "ය"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/pot.jpg",
-    "correctAnswer": "කළය",
+    "correctAnswer": ["ක", "ළ", "ය"],
     "levelNum": 2
   },
   {
     "imagePath": "/images/carousel/roof.jpg",
-    "correctAnswer": "වහල",
+    "correctAnswer": ["ව", "හ", "ල"],
     "levelNum": 2
   }
 ]

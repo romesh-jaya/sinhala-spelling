@@ -21,7 +21,7 @@ const Game: React.FC = () => {
   const searchParams = useSearchParams();
   const levelNum = searchParams.get('levelNum');
   const [typedInput, setTypedInput] = useState('');
-  const [correctAnswer, setCorrectAnswer] = useState('');
+  const [correctAnswer, setCorrectAnswer] = useState<string[]>([]);
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [showCelebration, setShowCelebration] = useState(false);
@@ -63,7 +63,7 @@ const Game: React.FC = () => {
     const filteredData = filterGameDataByLevel(gameData, validLevel);
     const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
-    setCorrectAnswer(shuffledData[0]?.correctAnswer || '');
+    setCorrectAnswer(shuffledData[0]?.correctAnswer || []);
     setCarouselKey(prev => prev + 1);
     setCurrentSlideIndex(0);
   }, [levelNum, getValidLevelNum]);
@@ -78,7 +78,7 @@ const Game: React.FC = () => {
     const filteredData = filterGameDataByLevel(gameData, validLevel);
     const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
     setRandomizedGameData(shuffledData);
-    setCorrectAnswer(shuffledData[0]?.correctAnswer || '');
+    setCorrectAnswer(shuffledData[0]?.correctAnswer || []);
   };
 
   const playNextLevel = () => {
@@ -118,8 +118,8 @@ const Game: React.FC = () => {
   // Check if the current answer is correct and update the list
   useEffect(() => {
     if (typedInput) {
-      if (typedInput === correctAnswer && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
-        console.log('correct answer', typedInput, correctAnswer);
+      if (typedInput === correctAnswer.join('') && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
+        console.log('correct answer', typedInput, correctAnswer.join(''));
         
         // Store the correct answer
         setAnsweredInputs(prev => ({
