@@ -14,6 +14,9 @@ export default function Home() {
         <Link href="/game?levelNum=2" className="start-button two">
           Start Game - Level 2
         </Link>
+        <Link href="/game?levelNum=3" className="start-button three">
+          Start Game - Level 3
+        </Link>
         </div>
       </div>
       <footer>

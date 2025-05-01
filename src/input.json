@@ -133,5 +133,20 @@
     "imagePath": "/images/carousel/roof.jpg",
     "correctAnswer": ["ව", "හ", "ල"],
     "levelNum": 2
+  },
+  {
+    "imagePath": "/images/carousel/bed.jpg",
+    "correctAnswer": ["ඇ", "ඳ"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/elephant.jpg",
+    "correctAnswer": ["අ", "ලි", "යා"],
+    "levelNum": 3
+  },
+  {
+    "imagePath": "/images/carousel/knife.jpg",
+    "correctAnswer": ["පි", "හි", "ය"],
+    "levelNum": 3
   }
 ]

@@ -65,6 +65,11 @@
   background-color: #6171ff;
 }
 
+.start-button.three {
+  color: black;
+  background-color: #61ffea;
+}
+
 .start-button.one:hover {
   background-color: #e0554f; // Darker shade of the button color
   transform: scale(1.05); // Slightly enlarge the button on hover
@@ -72,6 +77,11 @@
 
 .start-button.two:hover {
   background-color: #4f5fff; // Darker shade of the button color
+  transform: scale(1.05); // Slightly enlarge the button on hover
+}
+
+.start-button.three:hover {
+  background-color: #15c0a9; // Darker shade of the button color
   transform: scale(1.05); // Slightly enlarge the button on hover
 }
 
