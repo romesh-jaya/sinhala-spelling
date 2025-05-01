@@ -17,7 +17,7 @@ const DiacriticModal: React.FC<DiacriticModalProps> = ({ letterObj, onSelect, on
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-button" onClick={onClose}>×</button>
+        <button className="close-button mb-2" onClick={onClose}>X</button>
         <div className="diacritic-options">
           {/* Button for the base letter */}
           <button 
