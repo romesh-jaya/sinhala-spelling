@@ -2,11 +2,13 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-// Update import path for sinhalaLettersLevelBasic
-import { sinhalaLettersLevelBasic } from '@/keyboards';
+// Import specific keyboard layouts and the config
+import { sinhalaLettersLevelBasic, sinhalaLettersLevelBasicForDiacritics } from '@/keyboards';
+import keyboardConfig from '@/keyboardConfig.json'; // Import keyboard config
 import { MAX_GAME_SLIDES } from '@/constants';
 import gameData from '@/input.json';
 import levelConfig from '@/levelConfig.json';
+import { LettersWithDiacritics } from '@/models/LettersWithDiacritics'; // Import the type
 import './Game.scss';
 
 // Dynamically import components with loading states
@@ -17,6 +19,13 @@ const CarouselComponent = dynamic(() => import('../Carousel/Carousel'));
 const TileDisplayComponent = dynamic(() => import('../TileDisplay/TileDisplay'));
 
 const CelebrationPopupComponent = dynamic(() => import('../CelebrationPopup/CelebrationPopup'));
+
+// Map keyboard names from config to actual layout variables
+const keyboardLayouts: { [key: string]: LettersWithDiacritics[] } = {
+  basic: sinhalaLettersLevelBasic,
+  basicWithDiacritics: sinhalaLettersLevelBasicForDiacritics,
+  // Add other layouts here as needed
+};
 
 const Game: React.FC = () => {
   const router = useRouter();
@@ -137,6 +146,14 @@ const Game: React.FC = () => {
     }
   }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, randomizedGameData.length]);
 
+  // Memoize the current keyboard layout based on the valid level
+  const currentKeyboardLayout = useMemo(() => {
+    const config = keyboardConfig.find(config => config.levelNum === validLevel);
+    // Default to 'basic' if no config found for the level
+    const keyboardName = config ? config.keyboard : 'basic'; 
+    return keyboardLayouts[keyboardName] || sinhalaLettersLevelBasic; // Fallback to basic
+  }, [validLevel]);
+
   return (
     <div className="game-container">
       <div className="game-header">
@@ -170,7 +187,7 @@ const Game: React.FC = () => {
         isPreviouslyCorrect={correctlyAnsweredIndices.includes(currentSlideIndex)}
       />
       {/* Ensure KeyboardComponent uses the imported constant */}
-      <KeyboardComponent letters={sinhalaLettersLevelBasic} onKeyPress={handleKeyPress} />
+      <KeyboardComponent letters={currentKeyboardLayout} onKeyPress={handleKeyPress} />
       {showCelebration && (
         <CelebrationPopupComponent 
           onStartAgain={resetGame}

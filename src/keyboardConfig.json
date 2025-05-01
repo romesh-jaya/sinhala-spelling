@@ -1,9 +1,4 @@
 [
-  {
-    "keyboard": "sinhalaLettersLevelBasic"
-  },
-  {
-    "keyboard": "sinhalaLettersLevelBasicForDiacritics",
-    "useDiacritics": true
-  }
+  { "levelNum": 1, "keyboard": "basic" },
+  { "levelNum": 2, "keyboard": "basicWithDiacritics", "useDiacritics": true }
 ]
