@@ -6,5 +6,10 @@
   {
     "keyboard": "sinhalaLettersLevelBasic",
     "levelNum": 2
+  },
+  {
+    "keyboard": "sinhalaLettersLevelBasic",
+    "useDiacritics": true,
+    "levelNum": 3
   }
 ]

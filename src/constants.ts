@@ -1,3 +1,5 @@
+import { LettersWithDiacritics } from './models/LettersWithDiacritics';
+
 export const sinhalaLettersLevelBasic = [
   // Vowels
   'අ',
@@ -28,6 +30,38 @@ export const sinhalaLettersLevelBasic = [
   'ස',
   'හ',
   'ළ',
+];
+
+export const sinhalaLettersLevelBasicForDiacritics: LettersWithDiacritics[] = [
+  // Vowels
+  { key: 'අ' },
+  { key: 'ආ' },
+  { key: 'ඇ' },
+  { key: 'ඉ' },
+
+  // Consonants
+  { key: 'ක' },
+  { key: 'ග' },
+  { key: 'ඟ' },
+  { key: 'ජ' },
+  { key: 'ට' },
+  { key: 'ඩ' },
+  { key: 'ත' },
+  { key: 'ද' },
+  { key: 'න' },
+  { key: 'ඳ' },
+  { key: 'ප' },
+  { key: 'බ' },
+  { key: 'ම' },
+  { key: 'ඹ' },
+  { key: 'ය' },
+  { key: 'ර' },
+  { key: 'ල' },
+  { key: 'ව' },
+  { key: 'ෂ' },
+  { key: 'ස' },
+  { key: 'හ' },
+  { key: 'ළ' },
 ];
 
 export const sinhalaLettersMedium = [
