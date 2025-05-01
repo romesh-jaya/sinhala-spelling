@@ -1,35 +1,36 @@
 import { LettersWithDiacritics } from './models/LettersWithDiacritics';
 
-export const sinhalaLettersLevelBasic = [
+// Change type to LettersWithDiacritics[] and map strings to objects
+export const sinhalaLettersLevelBasic: LettersWithDiacritics[] = [
   // Vowels
-  'අ',
-  'ආ',
-  'ඇ',
-  'ඉ',
+  { key: 'අ' },
+  { key: 'ආ' },
+  { key: 'ඇ' },
+  { key: 'ඉ' },
 
   // Consonants
-  'ක',
-  'ග',
-  'ඟ',
-  'ජ',
-  'ට',
-  'ඩ',
-  'ත',
-  'ද',
-  'න',
-  'ඳ',
-  'ප',
-  'බ',
-  'ම',
-  'ඹ',
-  'ය',
-  'ර',
-  'ල',
-  'ව',
-  'ෂ',
-  'ස',
-  'හ',
-  'ළ',
+  { key: 'ක' },
+  { key: 'ග' },
+  { key: 'ඟ' },
+  { key: 'ජ' },
+  { key: 'ට' },
+  { key: 'ඩ' },
+  { key: 'ත' },
+  { key: 'ද' },
+  { key: 'න' },
+  { key: 'ඳ' },
+  { key: 'ප' },
+  { key: 'බ' },
+  { key: 'ම' },
+  { key: 'ඹ' },
+  { key: 'ය' },
+  { key: 'ර' },
+  { key: 'ල' },
+  { key: 'ව' },
+  { key: 'ෂ' },
+  { key: 'ස' },
+  { key: 'හ' },
+  { key: 'ළ' },
 ];
 
 export const sinhalaLettersLevelBasicForDiacritics: LettersWithDiacritics[] = [
