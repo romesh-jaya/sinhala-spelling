@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React from 'react';
 import styles from './CelebrationPopup.module.css';
+import levelConfig from '@/levelConfig.json'; // Import level config
 
 interface CelebrationPopupProps {
   onStartAgain: () => void;
@@ -10,7 +10,9 @@ interface CelebrationPopupProps {
 
 const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onStartAgain, playNextLevel, currentLevel }) => {
   const nextLevel = currentLevel + 1;
-  const hasNextLevel = nextLevel <= 2; // Based on levelConfig.json having levels 1 and 2
+  const levelKeys = Object.keys(levelConfig);
+  const maxLevel = levelKeys.length > 0 ? Math.max(...levelKeys.map(Number)) : 0; // Calculate max level from config
+  const hasNextLevel = nextLevel <= maxLevel; // Use maxLevel for comparison
 
   return (
     <div className={`${styles.overlay} ${styles.show}`}>
@@ -40,4 +42,4 @@ const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onStartAgain, playN
   );
 };
 
-export default CelebrationPopup; 
+export default CelebrationPopup;
