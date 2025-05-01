@@ -31,13 +31,13 @@ const Game: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const levelNum = searchParams.get('levelNum');
-  const [typedInput, setTypedInput] = useState('');
+  const [typedInput, setTypedInput] = useState<string[]>([]); // Changed type and initial value
   const [correctAnswer, setCorrectAnswer] = useState<string[]>([]);
   const [correctlyAnsweredIndices, setCorrectlyAnsweredIndices] = useState<number[]>([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [showCelebration, setShowCelebration] = useState(false);
   const [carouselKey, setCarouselKey] = useState(0);
-  const [answeredInputs, setAnsweredInputs] = useState<Record<number, string>>({});
+  const [answeredInputs, setAnsweredInputs] = useState<Record<number, string[]>>({}); // Changed type
   const [randomizedGameData, setRandomizedGameData] = useState<typeof gameData>([]);
   const [showInvalidLevelWarning, setShowInvalidLevelWarning] = useState(false);
   const [validLevel, setValidLevel] = useState(1);
@@ -77,11 +77,12 @@ const Game: React.FC = () => {
     setCorrectAnswer(shuffledData[0]?.correctAnswer || []);
     setCarouselKey(prev => prev + 1);
     setCurrentSlideIndex(0);
+    setTypedInput([]); // Reset typedInput
   }, [levelNum, getValidLevelNum]);
 
   const resetGame = () => {
     setShowCelebration(false);
-    setTypedInput('');
+    setTypedInput([]); // Reset to empty array
     setCorrectlyAnsweredIndices([]);
     setAnsweredInputs({});
     setCarouselKey(prev => prev + 1);
@@ -94,7 +95,7 @@ const Game: React.FC = () => {
 
   const playNextLevel = () => {
     setShowCelebration(false);
-    setTypedInput('');
+    setTypedInput([]); // Reset to empty array
     router.push(`/game?levelNum=${validLevel + 1}`);
   }
   
@@ -103,7 +104,7 @@ const Game: React.FC = () => {
       return; // Don't allow typing on already answered slides
     }
     if (typedInput.length < correctAnswer.length) {
-      setTypedInput((prev) => prev + letter);
+      setTypedInput((prev) => [...prev, letter]); // Add letter to array
     }
   };
 
@@ -111,7 +112,7 @@ const Game: React.FC = () => {
     if (correctlyAnsweredIndices.includes(currentSlideIndex)) {
       return; // Don't allow backspace on already answered slides
     }
-    setTypedInput((prev) => prev.slice(0, -1));
+    setTypedInput((prev) => prev.slice(0, -1)); // Remove last element from array
   };
 
   const onSlideChanged = (currentSlide: number) => {
@@ -120,22 +121,25 @@ const Game: React.FC = () => {
     
     if (correctlyAnsweredIndices.includes(currentSlide)) {
       // Restore the previously answered input
-      setTypedInput(answeredInputs[currentSlide] || '');
+      setTypedInput(answeredInputs[currentSlide] || []); // Restore array
     } else {
-      setTypedInput('');
+      setTypedInput([]); // Reset to empty array
     }
   };
 
   // Check if the current answer is correct and update the list
   useEffect(() => {
-    if (typedInput) {
-      if (typedInput === correctAnswer.join('') && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
-        console.log('correct answer', typedInput, correctAnswer.join(''));
-        
-        // Store the correct answer
+    if (typedInput.length > 0) { // Check if array is not empty
+      // Compare arrays by joining them or element by element
+      const isCorrect = typedInput.length === correctAnswer.length && typedInput.every((val, index) => val === correctAnswer[index]);
+
+      if (isCorrect && !correctlyAnsweredIndices.includes(currentSlideIndex)) {
+        console.log('correct answer', typedInput, correctAnswer);
+
+        // Store the correct answer array
         setAnsweredInputs(prev => ({
           ...prev,
-          [currentSlideIndex]: typedInput
+          [currentSlideIndex]: [...typedInput] // Store a copy of the array
         }));
 
         setCorrectlyAnsweredIndices((prev) => [...prev, currentSlideIndex]);
@@ -184,7 +188,7 @@ const Game: React.FC = () => {
         onSlideChanged={onSlideChanged} 
       />
       <TileDisplayComponent
-        input={typedInput}
+        input={typedInput} // Pass the array
         answerLength={correctAnswer.length}
         correctAnswer={correctAnswer}
         onBackspace={handleBackspace}
