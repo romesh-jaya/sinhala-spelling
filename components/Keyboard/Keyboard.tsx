@@ -1,24 +1,62 @@
-import React from 'react';
-import { LettersWithDiacritics } from '@/models/LettersWithDiacritics'; // Import the type
+import React, { useState } from 'react'; // Import useState
+import { LettersWithDiacritics } from '@/models/LettersWithDiacritics';
+import dynamic from 'next/dynamic'; // Import dynamic
 import './Keyboard.scss';
 
+// Dynamically import the modal
+const DiacriticModal = dynamic(() => import('../DiacriticModal/DiacriticModal'));
+
 interface KeyboardProps {
-  letters: LettersWithDiacritics[]; // Update prop type
+  letters: LettersWithDiacritics[];
   onKeyPress: (letter: string) => void;
+  useDiacritics: boolean; // Add prop to control modal behavior
 }
 
-const Keyboard: React.FC<KeyboardProps> = ({ letters, onKeyPress }) => {
+const Keyboard: React.FC<KeyboardProps> = ({ letters, onKeyPress, useDiacritics }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedLetter, setSelectedLetter] = useState<LettersWithDiacritics | null>(null);
+
+  const handleButtonClick = (letterObj: LettersWithDiacritics) => {
+    // Show modal only if useDiacritics is true AND the letter has diacritics
+    if (useDiacritics && letterObj.diacritics && letterObj.diacritics.length > 0) {
+      setSelectedLetter(letterObj);
+      setShowModal(true);
+    } else {
+      // Otherwise, directly call onKeyPress with the base letter
+      onKeyPress(letterObj.key);
+    }
+  };
+
+  const handleModalSelect = (selectedChar: string) => {
+    onKeyPress(selectedChar);
+    // Modal closes itself via its onClose prop triggered by handleModalClose
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    setSelectedLetter(null);
+  };
+
   return (
     <div className="keyboard-container">
-      {letters.map((letterObj) => ( // Iterate over objects
+      {letters.map((letterObj) => (
         <button 
-          key={letterObj.key} // Use the key property
+          key={letterObj.key}
           className="keyboard-button" 
-          onClick={() => onKeyPress(letterObj.key)} // Pass the key property
+          // Update onClick to use the new handler
+          onClick={() => handleButtonClick(letterObj)} 
         >
-          {letterObj.key} {/* Display the key property */}
+          {letterObj.key}
         </button>
       ))}
+      {/* Conditionally render the modal */}
+      {showModal && selectedLetter && (
+        <DiacriticModal 
+          letterObj={selectedLetter} 
+          onSelect={handleModalSelect} 
+          onClose={handleModalClose} 
+        />
+      )}
     </div>
   );
 };

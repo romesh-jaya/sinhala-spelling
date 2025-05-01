@@ -146,13 +146,17 @@ const Game: React.FC = () => {
     }
   }, [typedInput, correctAnswer, currentSlideIndex, correctlyAnsweredIndices, randomizedGameData.length]);
 
-  // Memoize the current keyboard layout based on the valid level
-  const currentKeyboardLayout = useMemo(() => {
+  // Memoize the current keyboard layout and config based on the valid level
+  const currentKeyboardConfig = useMemo(() => {
     const config = keyboardConfig.find(config => config.levelNum === validLevel);
-    // Default to 'basic' if no config found for the level
-    const keyboardName = config ? config.keyboard : 'basic'; 
-    return keyboardLayouts[keyboardName] || sinhalaLettersLevelBasic; // Fallback to basic
+    // Default to level 1 config if not found
+    return config || keyboardConfig.find(c => c.levelNum === 1) || { levelNum: 1, keyboard: 'basic', useDiacritics: false };
   }, [validLevel]);
+
+  const currentKeyboardLayout = useMemo(() => {
+    const keyboardName = currentKeyboardConfig.keyboard;
+    return keyboardLayouts[keyboardName] || sinhalaLettersLevelBasic; // Fallback to basic
+  }, [currentKeyboardConfig]);
 
   return (
     <div className="game-container">
@@ -187,7 +191,11 @@ const Game: React.FC = () => {
         isPreviouslyCorrect={correctlyAnsweredIndices.includes(currentSlideIndex)}
       />
       {/* Ensure KeyboardComponent uses the imported constant */}
-      <KeyboardComponent letters={currentKeyboardLayout} onKeyPress={handleKeyPress} />
+      <KeyboardComponent 
+        letters={currentKeyboardLayout} 
+        onKeyPress={handleKeyPress} 
+        useDiacritics={currentKeyboardConfig.useDiacritics || false} // Pass the flag
+      />
       {showCelebration && (
         <CelebrationPopupComponent 
           onStartAgain={resetGame}
