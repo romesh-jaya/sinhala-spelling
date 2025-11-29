@@ -21,6 +21,38 @@ A web-based game designed to help users practice and improve their Sinhala spell
 - **Tailwind CSS 4** - Utility-first CSS framework
 - **React Slick** - Carousel component for React
 
+## Screenshots
+
+
+<p align="center">
+Home Page
+</p>
+
+<div align="center">  
+  <img width="517" height="534" alt="Home Page" src="https://github.com/user-attachments/assets/72b2cf9a-a763-4c6a-9c82-3e5bf2e04294"  style="object-fit: contain;"  />
+</div>
+
+---
+
+<p align="center">
+Quiz in progress
+</p>
+
+<div align="center">
+  <img width="786" height="786" alt="Quiz in progress" src="https://github.com/user-attachments/assets/41a2e8e4-136c-4b8e-af49-0c18d9dc3010"  style="object-fit: contain;"  />
+</div>
+
+---
+
+<p align="center">
+Results page
+</p>
+
+<div align="center">
+  <img width="786" height="786" alt="Results page" src="https://github.com/user-attachments/assets/7a14d17a-38b3-4327-8259-d46529e2807c" style="object-fit: contain;"/>
+</div>
+
+
 ### Deployment
 
 - **Firebase** - Hosting and deployment platform
