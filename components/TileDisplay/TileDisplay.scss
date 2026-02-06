@@ -35,6 +35,26 @@
       background-color: #241901;
     }
   }
+
+  &.correct {
+    background-color: #a5d6a7;
+    border: 2px solid #81c784;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #66bb6a;
+      border: 2px solid #4caf50;
+    }
+  }
+
+  &.incorrect {
+    background-color: #ef9a9a;
+    border: 2px solid #e57373;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #e57373;
+      border: 2px solid #ef5350;
+    }
+  }
 }
 
 .backspace-button {
@@ -76,7 +96,4 @@
   font-weight: bold;
   margin-left: 0.5rem;
   user-select: none;
-}
-
-.action-icon {
 }

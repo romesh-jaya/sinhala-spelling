@@ -19,8 +19,19 @@ const TileDisplay: React.FC<TileDisplayProps> = ({
   // Create an array of tiles based on the answer length
   const tiles = Array(answerLength).fill(null).map((_, index) => {
     const letter = input[index] || '';
+    
+    // Determine if the letter is correct or incorrect
+    let statusClass = '';
+    if (letter) {
+      if (letter === correctAnswer[index]) {
+        statusClass = 'correct';
+      } else {
+        statusClass = 'incorrect';
+      }
+    }
+    
     return (
-      <div key={index} className={`tile ${letter ? 'filled' : 'empty'}`}>
+      <div key={index} className={`tile ${letter ? 'filled' : 'empty'} ${statusClass}`}>
         {letter}
       </div>
     );
