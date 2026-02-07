@@ -13,11 +13,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sinhala Spelling",
-  description: "Free to use Sinhala spelling game for kids to learn basic 2-3 letter words and more",
-  metadataBase: new URL('https://sinhala-spelling.web.app'), // required for meta image
-  other: {
-    custom: ['sinhala', 'spelling', 'game', 'kids', '2-3 letter words'],
+  title: "Sinhala Spelling Game | Learn to Spell in Sinhala",
+  description: "Free interactive Sinhala spelling game for kids. Learn basic Sinhala letters and words through fun, gamified lessons. Perfect for beginners of all ages.",
+  keywords: "Sinhala spelling game, learn Sinhala, Sinhala letters, educational game for kids, Sinhala language learning",
+  metadataBase: new URL('https://sinhala-spelling.web.app'),
+  alternates: {
+    canonical: 'https://sinhala-spelling.web.app',
+  },
+  openGraph: {
+    title: "Sinhala Spelling Game | Learn to Spell in Sinhala",
+    description: "Free interactive Sinhala spelling game for kids. Learn basic Sinhala letters and words through fun, gamified lessons.",
+    url: 'https://sinhala-spelling.web.app',
+    siteName: 'Sinhala Spelling Game',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Sinhala Spelling Game",
+    description: "Free interactive Sinhala spelling game for kids",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 
