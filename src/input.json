@@ -2,236 +2,283 @@
   {
     "imagePath": "/images/carousel/ear.jpg",
     "correctAnswer": ["ක", "න"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/ear.wav"
   },
   {
     "imagePath": "/images/carousel/mouth.jpg",
     "correctAnswer": ["ක", "ට"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/mouth.wav"
   },
   {
     "imagePath": "/images/carousel/stomach.jpg",
     "correctAnswer": ["බ", "ඩ"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/stomach.wav"
   },
   {
     "imagePath": "/images/carousel/eight.png",
     "correctAnswer": ["අ", "ට"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/eight.wav"
   },
   {
     "imagePath": "/images/carousel/flower.jpg",
     "correctAnswer": ["ම", "ල"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/flower.wav"
   },
   {
     "imagePath": "/images/carousel/potato.jpg",
     "correctAnswer": ["අ", "ල"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/potato.wav"
   },
   {
     "imagePath": "/images/carousel/river.jpg",
     "correctAnswer": ["ග", "ඟ"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/river.mp3"
   },
   {
     "imagePath": "/images/carousel/stone.png",
     "correctAnswer": ["ග", "ල"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/stone.mp3"
   },
   {
     "imagePath": "/images/carousel/sun.jpg",
     "correctAnswer": ["ඉ", "ර"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/sun.mp3"
   },
   {
     "imagePath": "/images/carousel/tree.png",
     "correctAnswer": ["ග", "ස"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/tree.mp3"
   },
   {
     "imagePath": "/images/carousel/hand.jpg",
     "correctAnswer": ["අ", "ත"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/hand.mp3"
   },
   {
     "imagePath": "/images/carousel/king.jpg",
     "correctAnswer": ["ර", "ජ"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/king.mp3"
   },
   {
     "imagePath": "/images/carousel/mango.jpg",
     "correctAnswer": ["අ", "ඹ"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/mango.mp3"
   },
   {
     "imagePath": "/images/carousel/moon.jpg",
     "correctAnswer": ["හ", "ඳ"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/moon.mp3"
   },
   {
     "imagePath": "/images/carousel/tooth.png",
     "correctAnswer": ["ද", "ත"],
-    "levelNum": 1
+    "levelNum": 1,
+    "audioPath": "/audio/carousel/tooth.mp3"
   },
   {
     "imagePath": "/images/carousel/bathala.jpg",
     "correctAnswer": ["බ", "ත", "ල"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/bathala.mp3"
   },
   {
     "imagePath": "/images/carousel/bus.jpg",
     "correctAnswer": ["බ", "ස", "ය"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/bus.mp3"
   },
   {
     "imagePath": "/images/carousel/eakle.jpg",
     "correctAnswer": ["ඉ", "ද", "ල"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/eakle.mp3"
   },
   {
     "imagePath": "/images/carousel/four.png",
     "correctAnswer": ["හ", "ත", "ර"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/four.mp3"
   },
   {
     "imagePath": "/images/carousel/shop.jpg",
     "correctAnswer": ["ක", "ඩ", "ය"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/shop.mp3"
   },
   {
     "imagePath": "/images/carousel/kadala.jpg",
     "correctAnswer": ["ක", "ඩ", "ල"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/kadala.mp3"
   },
   {
     "imagePath": "/images/carousel/sky.jpg",
     "correctAnswer": ["අ", "හ", "ස"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/sky.mp3"
   },
   {
     "imagePath": "/images/carousel/lamp.jpg",
     "correctAnswer": ["ප", "හ", "න"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/lamp.mp3"
   },
   {
     "imagePath": "/images/carousel/nine.png",
     "correctAnswer": ["න", "ව", "ය"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/nine.mp3"
   },
   {
     "imagePath": "/images/carousel/nose.jpg",
     "correctAnswer": ["න", "හ", "ය"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/nose.mp3"
   },
   {
     "imagePath": "/images/carousel/pot.jpg",
     "correctAnswer": ["ක", "ළ", "ය"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/pot.mp3"
   },
   {
     "imagePath": "/images/carousel/roof.jpg",
     "correctAnswer": ["ව", "හ", "ල"],
-    "levelNum": 2
+    "levelNum": 2,
+    "audioPath": "/audio/carousel/roof.mp3"
   },
   {
     "imagePath": "/images/carousel/bed.jpg",
     "correctAnswer": ["ඇ", "ඳ"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/bed.mp3"
   },
   {
     "imagePath": "/images/carousel/elephant.jpg",
     "correctAnswer": ["අ", "ලි", "යා"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/elephant.mp3"
   },
   {
     "imagePath": "/images/carousel/knife.jpg",
     "correctAnswer": ["පි", "හි", "ය"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/knife.mp3"
   },
   {
     "imagePath": "/images/carousel/parrot.jpg",
     "correctAnswer": ["ගි", "ර", "වා"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/parrot.mp3"
   },
   {
     "imagePath": "/images/carousel/dog.jpg",
     "correctAnswer": ["බ", "ල්", "ලා"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/dog.mp3"
   },
   {
     "imagePath": "/images/carousel/banana.jpg",
     "correctAnswer": ["කෙ", "සෙ", "ල්"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/banana.mp3"
   },
   {
     "imagePath": "/images/carousel/duck.jpg",
     "correctAnswer": ["තා", "රා", "වා"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/duck.mp3"
   },
   {
     "imagePath": "/images/carousel/rabbit.jpg",
     "correctAnswer": ["හා", "වා"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/rabbit.mp3"
   },
   {
     "imagePath": "/images/carousel/pen.png",
     "correctAnswer": ["පෑ", "න"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/pen.mp3"
   },
   {
     "imagePath": "/images/carousel/hammer.jpg",
     "correctAnswer": ["මි", "ටි", "ය"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/hammer.mp3"
   },
   {
     "imagePath": "/images/carousel/rat.jpg",
     "correctAnswer": ["මී", "යා"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/rat.mp3"
   },
   {
     "imagePath": "/images/carousel/chair.jpg",
     "correctAnswer": ["පු", "ටු", "ව"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/chair.mp3"
   },
   {
     "imagePath": "/images/carousel/table.jpg",
     "correctAnswer": ["මේ", "ස", "ය"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/table.mp3"
   },
   {
     "imagePath": "/images/carousel/coconut.jpg",
     "correctAnswer": ["පො", "ල්"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/coconut.mp3"
   },
   {
     "imagePath": "/images/carousel/leaf.jpg",
     "correctAnswer": ["කො", "ළ", "ය"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/leaf.mp3"
   },
   {
     "imagePath": "/images/carousel/ball.jpg",
     "correctAnswer": ["බෝ", "ල", "ය"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/ball.mp3"
   },
   {
     "imagePath": "/images/carousel/cow.jpg",
     "correctAnswer": ["හ", "ර", "කා"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/cow.mp3"
   },
   {
     "imagePath": "/images/carousel/hen.jpg",
     "correctAnswer": ["කි", "කි", "ළී"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/hen.mp3"
   },
   {
     "imagePath": "/images/carousel/bat.jpg",
     "correctAnswer": ["පි", "ත්", "ත"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/bat.mp3"
   },
   {
     "imagePath": "/images/carousel/basket.png",
     "correctAnswer": ["කූ", "ඩ", "ය"],
-    "levelNum": 3
+    "levelNum": 3,
+    "audioPath": "/audio/carousel/basket.mp3"
   }
 ]
