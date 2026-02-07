@@ -96,13 +96,16 @@
   border: none;
   border-radius: 50%;
   background-color: #e3f2fd;
-  color: #1976d2;
-  font-size: 1.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.05s ease;
+  padding: 0;
+
+  svg {
+    stroke: #ff6f61;
+  }
 
   &:hover {
     background-color: #bbdefb;
@@ -115,7 +118,10 @@
 
   @media (prefers-color-scheme: dark) {
     background-color: #1a3a52;
-    color: #64b5f6;
+
+    svg {
+      stroke: #ff6f61;
+    }
 
     &:hover {
       background-color: #1e5a96;
