@@ -5,10 +5,10 @@ import Link from 'next/link';
 // Import specific keyboard layouts and the config
 import { sinhalaLettersLevelBasic, sinhalaLettersLevelBasicForDiacritics } from '@/keyboards';
 import keyboardConfig from '@/keyboardConfig.json'; // Import keyboard config
-import { MAX_GAME_SLIDES } from '@/constants';
 import gameData from '@/input.json';
 import levelConfig from '@/levelConfig.json';
 import { LettersWithDiacritics } from '@/models/LettersWithDiacritics'; // Import the type
+import { shuffleArray } from '@/utils/gameUtils'; // Import new shuffleArray function
 import './Game.scss';
 
 // Statically import components
@@ -52,16 +52,6 @@ const Game: React.FC = () => {
     return data.filter(item => item.levelNum === level);
   };
 
-  // Function to shuffle array using Fisher-Yates algorithm
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-    return newArray;
-  };
-
   // Initialize randomized game data when component mounts or level changes
   useEffect(() => {
     setCorrectlyAnsweredIndices([]);
@@ -69,7 +59,7 @@ const Game: React.FC = () => {
     const validLevel = getValidLevelNum();
     setValidLevel(validLevel);
     const filteredData = filterGameDataByLevel(gameData, validLevel);
-    const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
+    const shuffledData = shuffleArray(filteredData, validLevel);
     setRandomizedGameData(shuffledData);
     setCorrectAnswer(shuffledData[0]?.correctAnswer || []);
     setCarouselKey(prev => prev + 1);
@@ -85,7 +75,7 @@ const Game: React.FC = () => {
     setCarouselKey(prev => prev + 1);
     setCurrentSlideIndex(0);
     const filteredData = filterGameDataByLevel(gameData, validLevel);
-    const shuffledData = shuffleArray(filteredData).slice(0, MAX_GAME_SLIDES);
+    const shuffledData = shuffleArray(filteredData, validLevel);
     setRandomizedGameData(shuffledData);
     setCorrectAnswer(shuffledData[0]?.correctAnswer || []);
   };
