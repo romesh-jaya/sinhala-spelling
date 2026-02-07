@@ -1,5 +1,6 @@
 [
   { "levelNum": 1, "keyboard": "basic" },
   { "levelNum": 2, "keyboard": "basic" },
-  { "levelNum": 3, "keyboard": "basicWithDiacritics", "useDiacritics": true }
+  { "levelNum": 3, "keyboard": "basicWithDiacritics", "useDiacritics": true },
+  { "levelNum": 4, "keyboard": "basicWithDiacritics", "useDiacritics": true }
 ]
