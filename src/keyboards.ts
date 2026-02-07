@@ -110,7 +110,7 @@ export const sinhalaLettersLevelBasicForDiacritics: LettersWithDiacritics[] = [
   }, // Added 'ෂො', 'ෂෝ'
   {
     key: 'ස',
-    diacritics: ['සා', 'සැ', 'සෑ', 'සි', 'සී', 'සු', 'සූ', 'සෙ', 'සේ', 'ස්', 'සො', 'සෝ'],
+    diacritics: ['සා', 'සැ', 'සෑ', 'සි', 'සී', 'සු', 'සූ', 'සෙ', 'සේ', 'ස්', 'සො', 'සෝ', 'සිං'],
   }, // Added 'සො', 'සෝ'
   {
     key: 'හ',
