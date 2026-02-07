@@ -11,7 +11,7 @@ interface CelebrationPopupProps {
 const CelebrationPopup: React.FC<CelebrationPopupProps> = ({ onStartAgain, playNextLevel, currentLevel }) => {
   const nextLevel = currentLevel + 1;
   const levelKeys = Object.keys(levelConfig);
-  const maxLevel = levelKeys.length > 0 ? Math.max(...levelKeys.map(Number)) : 0; // Calculate max level from config
+  const maxLevel = levelKeys.length > 0 ? Math.max(...levelKeys.map(Number)) + 1 : 0; // Calculate max level from config
   const hasNextLevel = nextLevel <= maxLevel; // Use maxLevel for comparison
 
   return (
