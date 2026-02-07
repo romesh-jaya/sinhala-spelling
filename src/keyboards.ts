@@ -87,7 +87,10 @@ export const sinhalaLettersLevelBasicForDiacritics: LettersWithDiacritics[] = [
     key: 'ම',
     diacritics: ['මා', 'මැ', 'මෑ', 'මි', 'මී', 'මු', 'මූ', 'මෙ', 'මේ', 'ම්', 'මො', 'මෝ'],
   }, // Added 'මො', 'මෝ'
-  { key: 'ඹ' }, // Added 'ඹ්', 'ඹො', 'ඹෝ' (Note: 'ඹා', 'ඹු' were present before, added others)
+  {
+    key: 'ඹ',
+    diacritics: ['ඹා', 'ඹැ', 'ඹෑ', 'ඹි', 'ඹී', 'ඹු', 'ඹූ', 'ඹෙ', 'ඹේ', 'ඹ්', 'ඹො', 'ඹෝ'],
+  }, // Added diacritics for ඹ
   {
     key: 'ය',
     diacritics: ['යා', 'යැ', 'යෑ', 'යි', 'යී', 'යු', 'යූ', 'යෙ', 'යේ', 'ය්', 'යො', 'යෝ'],
