@@ -7,6 +7,7 @@ interface TileDisplayProps {
   correctAnswer: string[]; // Changed type to string[]
   onBackspace: () => void;
   isPreviouslyCorrect?: boolean;
+  audioPath?: string;
 }
 
 const TileDisplay: React.FC<TileDisplayProps> = ({ 
@@ -14,8 +15,17 @@ const TileDisplay: React.FC<TileDisplayProps> = ({
   answerLength, 
   correctAnswer, 
   onBackspace,
-  isPreviouslyCorrect = false 
+  isPreviouslyCorrect = false,
+  audioPath
 }) => {
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  };
   // Create an array of tiles based on the answer length
   const tiles = Array(answerLength).fill(null).map((_, index) => {
     const letter = input[index] || '';
@@ -44,6 +54,19 @@ const TileDisplay: React.FC<TileDisplayProps> = ({
     <div className="tile-container mb-4">
       {tiles}
       <div className="action-icon">
+        {audioPath && (
+          <>
+            <audio ref={audioRef} src={audioPath} />
+            <button 
+              className="audio-button"
+              onClick={playAudio}
+              title="Play audio"
+              aria-label="Play audio for this word"
+            >
+              🔊
+            </button>
+          </>
+        )}
         {(isCorrect || isPreviouslyCorrect) && (
           <span className="checkmark">✓</span>
         )}

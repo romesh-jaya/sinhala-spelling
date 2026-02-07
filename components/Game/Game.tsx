@@ -190,6 +190,7 @@ const Game: React.FC = () => {
         correctAnswer={correctAnswer}
         onBackspace={handleBackspace}
         isPreviouslyCorrect={correctlyAnsweredIndices.includes(currentSlideIndex)}
+        audioPath={randomizedGameData[currentSlideIndex]?.audioPath}
       />
       {/* Ensure KeyboardComponent uses the imported constant */}
       <KeyboardComponent 

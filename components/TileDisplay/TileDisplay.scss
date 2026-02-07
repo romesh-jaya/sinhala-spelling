@@ -86,6 +86,43 @@
   }
 }
 
+.audio-button {
+  position: absolute;
+  right: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.05s ease;
+
+  &:hover {
+    background-color: #bbdefb;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #1a3a52;
+    color: #64b5f6;
+
+    &:hover {
+      background-color: #1e5a96;
+    }
+  }
+}
+
 .checkmark {
   position: absolute;
   top: 50%;
