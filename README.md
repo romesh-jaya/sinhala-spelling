@@ -8,6 +8,7 @@ A web-based game designed to help users practice and improve their Sinhala spell
 - Real-time feedback on spelling accuracy
 - Score tracking and progress monitoring
 - Responsive design for various screen sizes
+- Audio prompts for words
 - User-friendly navigation
 
 ## Tech Stack
